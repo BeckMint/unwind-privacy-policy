@@ -8,6 +8,10 @@
 - **开发者主体**：BeckMint（独立开发者）
 - **联系邮箱**：beckmint@gmail.com
 - **在线公开访问链接**：https://beckmint.github.io/unwind-privacy-policy/
+- **产品版本发布与 APK 下载页**：https://beckmint.github.io/unwind-privacy-policy/releases.html
+- **最新正式版安装包直链**：[`releases/Unwind-v0.7.7-release.apk`](releases/Unwind-v0.7.7-release.apk) (4.69 MB, v0.7.7)
+- **完整版本演进日志**：详见 [`RELEASES.md`](RELEASES.md)
+
 
 ---
 
@@ -67,6 +71,10 @@
 
 随着本应用功能的迭代升级或相关法律法规的要求，我们可能会适时修订本隐私政策的内容。修改后的隐私政策将在应用版本更新时随附更新，并在公开发布渠道进行公示：
 - **在线公开访问链接**：https://beckmint.github.io/unwind-privacy-policy/
+- **产品版本发布与 APK 下载页**：https://beckmint.github.io/unwind-privacy-policy/releases.html
+- **最新正式版安装包直链**：[`releases/Unwind-v0.7.7-release.apk`](releases/Unwind-v0.7.7-release.apk) (4.69 MB, v0.7.7)
+- **完整版本演进日志**：详见 [`RELEASES.md`](RELEASES.md)
+
 - **开源合规代码仓**：https://github.com/BeckMint/unwind-privacy-policy
 
 ---

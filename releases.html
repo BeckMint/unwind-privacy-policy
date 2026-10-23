@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不卡带 (UNWIND) - 产品版本发布与官方安装包下载</title>
+    <style>
+        :root {
+            --bg-color: #f7f9fa;
+            --card-bg: #ffffff;
+            --text-main: #1f2328;
+            --text-secondary: #57606a;
+            --primary: #d97706;
+            --primary-hover: #b45309;
+            --border-color: #d0d7de;
+            --accent-green: #2da44e;
+            --badge-bg: rgba(217, 119, 6, 0.12);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --card-bg: #161b22;
+                --text-main: #f0f6fc;
+                --text-secondary: #8b949e;
+                --primary: #f59e0b;
+                --primary-hover: #d97706;
+                --border-color: #30363d;
+                --accent-green: #3fb950;
+                --badge-bg: rgba(245, 158, 11, 0.16);
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.68;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .nav-brand .nav-title span {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: var(--bg-color);
+            color: var(--text-main);
+        }
+        .nav-link.active {
+            background: var(--primary);
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid var(--border-color);
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.03) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0 0 16px 0;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            font-size: 13px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: var(--text-secondary);
+        }
+        .stat-pill strong {
+            color: var(--primary);
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+        .card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .version-title {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .badge-latest {
+            background: var(--accent-green);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .release-date {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+        }
+        .btn-download:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+        }
+        .btn-download-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--primary) !important;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 5px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-download-sm:hover {
+            border-color: var(--primary);
+            background: var(--badge-bg);
+        }
+        .pkg-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 13px;
+        }
+        .pkg-info-item strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-right: 6px;
+        }
+        .sha-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            word-break: break-all;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .sha-box code {
+            color: var(--text-main);
+        }
+        .section-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+        }
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .history-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+        }
+        .history-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .history-tag {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .guide-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .guide-step {
+            margin-bottom: 12px;
+            font-size: 14.5px;
+        }
+        .guide-step strong {
+            color: var(--primary);
+        }
+        ul {
+            margin: 8px 0 12px 0;
+            padding-left: 20px;
+        }
+        li {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="nav-bar">
+        <div class="nav-brand">
+            <span class="nav-logo">📼</span>
+            <span class="nav-title">不卡带 <span>(UNWIND)</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link ">📜 隐私保护政策</a>
+            <a href="releases.html" class="nav-link active">📦 产品发布与下载</a>
+            <a href="https://github.com/BeckMint/unwind-privacy-policy" target="_blank" class="nav-link github-btn">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub 源码
+            </a>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <h1 class="hero-title">📼 不卡带 (UNWIND) 产品发布页</h1>
+        <p class="hero-subtitle">专为纵向小折叠手机（vivo X Flip 等）外屏打造的纯粹拟物复古随身听与无损音乐播放器</p>
+        <div class="hero-stats">
+            <div class="stat-pill">最新版本: <strong>v0.7.7</strong></div>
+            <div class="stat-pill">更新时间: <strong>2026-10-23</strong></div>
+            <div class="stat-pill">发布历史: <strong>共 12 个版本</strong></div>
+            <div class="stat-pill">安全声明: <strong>官方原生直包 · 0第三方SDK</strong></div>
+        </div>
+    </div>
+
+    <!-- Latest Featured Release -->
+    <div class="card featured">
+        <div class="featured-tag">当前最新正式版</div>
+        <div class="card-header">
+            <div>
+                <div class="version-title">
+                    v0.7.7 正式发布包
+                    <span class="badge-latest">推荐升级</span>
+                </div>
+                <div class="release-date">发布日期: 2026-10-23 &nbsp;|&nbsp; 适用架构: ARM64-v8a / 32-bit 通用</div>
+            </div>
+            <a href="releases/Unwind-v0.7.7-release.apk" download class="btn-download">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                下载正式版 APK (4.69 MB)
+            </a>
+        </div>
+
+        <div class="pkg-info-grid">
+            <div class="pkg-info-item"><strong>安装包名:</strong> com.beckmint.unwind</div>
+            <div class="pkg-info-item"><strong>文件名称:</strong> Unwind-v0.7.7-release.apk</div>
+            <div class="pkg-info-item"><strong>安装包大小:</strong> 4.69 MB (4,920,176 字节)</div>
+            <div class="pkg-info-item"><strong>最低系统:</strong> Android 10 (API 29) +</div>
+        </div>
+
+        <div class="sha-box">
+            <span><strong>SHA-256 完整校验码:</strong> <code>fb521242b0749ffe8c658898a54a1720a533252e851cc4b4d30bba6fd2408e20</code></span>
+        </div>
+
+        <h3 style="font-size: 16px; margin: 18px 0 10px 0; color: var(--text-main);">🌟 本次核心升级亮点：</h3>
+        <ul>
+            <li><strong>5 重复古声音滤镜与拟物机芯声画一体</strong>：磁带双轴旋转与Hiss微噪、33转黑胶唱针微跳与温润爆豆、电子管广播猫眼呼吸、千禧光驱激光反光寻轨、原音直通，轻触中央视窗即刻循环切换；</li>
+            <li><strong>飞牛私有云 (fnOS / WebDAV) 远程无损直连</strong>：点对点 WebDAV 高速串流，随身带走海量母带曲库，不占用手机机身存储，零第三方中转服务器；</li>
+            <li><strong>底层硬件安全区 (TEE) 密钥保护</strong>：WebDAV 认证凭据交由 Android Keystore 硬件安全芯片以 AES-256 GCM 硬件加密存储，防逆向、不可导出；</li>
+            <li><strong>30°~60° 悬停案头伴听与 Auto-Dim 微光节能</strong>：深入适配 AMOLED 纯黑发光特性，静置自动进入微光低功耗走带，机身不发热、电量超省心；</li>
+            <li><strong>外屏本地视频播放与双击全屏</strong>：自由载入个人本地视频文件，独创复古小视窗伴放，轻触双击无缝切换全屏沉浸观影；</li>
+            <li><strong>16 段双通道高阻尼动态 VU 电平表与 7 档硬件级 DSP 纯音调校</strong>：MEGA BASS 重低音增强、清澈人声等 7 档硬件 EQ 随心定制。</li>
+        </ul>
+    </div>
+
+    <!-- Quick Installation Guide -->
+    <div class="guide-box">
+        <h3 style="margin-top: 0; font-size: 17px; color: var(--primary); display: flex; align-items: center; gap: 8px;">
+            📱 vivo X Flip / 小折叠外屏魔镜安装与使用指南
+        </h3>
+        <div class="guide-step"><strong>步骤 1：</strong>点击上方下载按钮下载 <code>Unwind-v0.7.7-release.apk</code> 并直接在手机中完成安装；</div>
+        <div class="guide-step"><strong>步骤 2：</strong>打开手机系统【设置】 > 【外屏专区】或【魔镜应用 / 外屏应用管理】；</div>
+        <div class="guide-step"><strong>步骤 3：</strong>在应用列表中找到「不卡带 (Unwind)」并勾选开启允许在外屏显示；</div>
+        <div class="guide-step"><strong>步骤 4：</strong>合上手机翻盖，点亮外屏向左滑动至应用列表，点击「不卡带」图标即可开始沉浸播放！（长按可拖动至外屏首位，合盖双击秒开秒听）</div>
+    </div>
+
+    <!-- Release History -->
+    <div class="section-heading">
+        📦 历史发布版本存档与更新日志 (11 个版本)
+    </div>
+
+    <div class="history-list">
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.6</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.6-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.6-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>f96e73d9dd9229452b5af0b62e2b1c10...</code>
+            </div>
+            <ul>
+                <li>升级 VintageAudioTextureEngine 纹理引擎，优化黑胶爆豆与磁带 Hiss 物理微噪拟真度；</li>
+                <li>优化 WebDAVClient 多级目录懒加载与递归解析，提速海量母带曲目索引；</li>
+                <li>修复外屏长时间伴听的内存释放逻辑，运行更丝滑稳定。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.5</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.5-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.5-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>69d2fdb09773d2cb793b1c0f5ba17cf0...</code>
+            </div>
+            <ul>
+                <li>优化小折叠屏 30°~60° 悬停立放检测与透视视角自适应；</li>
+                <li>增强防误触锁 (HOLD)，外屏锁定时弹出点阵警示遮罩，杜绝口袋误触；</li>
+                <li>优化 AMOLED 纯黑像素功耗管理。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.4</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.4-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.4-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>c3d8704bc145900c443c9f17862e2234...</code>
+            </div>
+            <ul>
+                <li>优化 Media3 后台常驻服务保活，增强来电接听及多任务切换后的断点恢复；</li>
+                <li>新增蓝牙耳机断开连接自动暂停保护；</li>
+                <li>拦截物理音量按键，在点阵 LCD 呈现点阵音量条浮层。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.3</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.3-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.3-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>bda384272b22d04101cdb886b7ce676e...</code>
+            </div>
+            <ul>
+                <li>新增 Auto-Dim 微光定时器设置（15秒 / 30秒 / 60秒可选），静置常亮伴放更低温省电；</li>
+                <li>优化机械按键线性马达振动触感（Haptic Feedback）阻尼曲线。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.2</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.2-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.2-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>79b72831ba51b62ed8b0a24029c8993f...</code>
+            </div>
+            <ul>
+                <li>增加声音滤镜强度档位调节（25% / 50% / 75%），满足轻度温润与重度复古解压不同偏好；</li>
+                <li>优化中央机芯视窗触控判定，轻触即刻循环切芯。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.1</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.1-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.1-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>7d8ef18c11261dd982ac418c92114027...</code>
+            </div>
+            <ul>
+                <li>优化 WebDAV 弱网与高延迟环境下的重连与自适应流式缓冲；</li>
+                <li>支持无损 FLAC / APE / WAV 预缓存，降低切歌卡顿。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.7.0</span> &nbsp;
+                    <span class="release-date">2026-10-23</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.69 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.7.0-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.7.0-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>162ba102fa06b3ead57bfcfe4d8600f4...</code>
+            </div>
+            <ul>
+                <li>产品全面更名为「不卡带 (Unwind)」；</li>
+                <li>视觉全面升级，引入索尼 Walkman 经典暖琥珀橙（Warm Amber）与 7 款复古背光；</li>
+                <li>升级双源文件管理器，打通本地文件与云端曲目。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.6.9</span> &nbsp;
+                    <span class="release-date">2026-10-22</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.66 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.6.9-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.6.9-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>acb49f678df0b7176d546046259c746b...</code>
+            </div>
+            <ul>
+                <li>首次引入飞牛私有云 (fnOS) 远程直连与 WebDAV 协议；</li>
+                <li>搭建 Android Keystore 底层硬件安全区 (TEE) AES-256 存储架构。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.6.8</span> &nbsp;
+                    <span class="release-date">2026-10-22</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.65 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.6.8-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.6.8-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>d4a2a9cb67f6bbd36c85c00e01ae27de...</code>
+            </div>
+            <ul>
+                <li>深度优化 SAF 批量扫描与多级子目录递归解析；</li>
+                <li>增强中文 ID3v2 标签繁简体与老旧 GBK 编码防乱码转换。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.6.7</span> &nbsp;
+                    <span class="release-date">2026-10-22</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.65 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.6.7-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.6.7-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>3142d16e9705a1c3a3ae765f405f11a9...</code>
+            </div>
+            <ul>
+                <li>新增本地个人视频文件（MP4/MOV）导入与播放支持；</li>
+                <li>独创微型复古 CRT 扫描线小视窗，支持双击一键全屏沉浸播放。</li>
+            </ul>
+        </div>
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.6.6</span> &nbsp;
+                    <span class="release-date">2026-10-21</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(3.73 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.6.6-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.6.6-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>3285554e378cd9a865b9928f8e22a78f...</code>
+            </div>
+            <ul>
+                <li>vivo X Flip 外屏原生魔镜应用适配首发版本；</li>
+                <li>深度适配 682×422 黄金分辨率，三段式拟物控制台、双轴机械走带、16 路 VU 电平表。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 BeckMint Studio · 不卡带 (UNWIND) 官方开源合规发布平台<br>
+        本页面所有打包 APK 均为官方原生编译签署包，绝不含任何第三方修改。
+    </div>
+</div>
+</body>
+</html>
