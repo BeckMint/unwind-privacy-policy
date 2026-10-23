@@ -2,289 +2,227 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>不卡带 (Unwind) - 隐私政策与个人信息保护声明</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不卡带（UNWIND）用户隐私保护政策与个人信息处理规则</title>
     <style>
         :root {
-            --primary: #d97706;
-            --primary-dark: #b45309;
-            --bg: #f8fafc;
+            --bg-color: #f7f9fa;
             --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --table-header: #f1f5f9;
-            --highlight: #fef3c7;
+            --text-main: #1f2328;
+            --text-secondary: #57606a;
+            --primary: #d97706;
+            --border-color: #d0d7de;
         }
         @media (prefers-color-scheme: dark) {
             :root {
+                --bg-color: #0d1117;
+                --card-bg: #161b22;
+                --text-main: #f0f6fc;
+                --text-secondary: #8b949e;
                 --primary: #f59e0b;
-                --primary-dark: #d97706;
-                --bg: #0f172a;
-                --card-bg: #1e293b;
-                --text-main: #f1f5f9;
-                --text-muted: #94a3b8;
-                --border: #334155;
-                --table-header: #1e293b;
-                --highlight: #78350f;
+                --border-color: #30363d;
             }
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.68;
             color: var(--text-main);
-            line-height: 1.75;
+            background-color: var(--bg-color);
+            margin: 0;
             padding: 24px 16px;
         }
         .container {
             max-width: 840px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 36px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-        }
-        header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 24px;
-            margin-bottom: 28px;
-        }
-        .badge {
-            display: inline-block;
-            background-color: var(--highlight);
-            color: var(--primary-dark);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
         }
         h1 {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.35;
-            margin-bottom: 12px;
+            font-size: 24px;
+            color: var(--primary);
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
         }
-        .meta-info {
-            font-size: 14px;
-            color: var(--text-muted);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .meta-info span strong {
-            color: var(--text-main);
+        .meta-tag {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
         h2 {
-            font-size: 19px;
-            font-weight: 700;
+            font-size: 18px;
+            margin-top: 28px;
+            margin-bottom: 12px;
             color: var(--text-main);
-            margin-top: 32px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
             border-left: 4px solid var(--primary);
             padding-left: 10px;
         }
-        p {
-            font-size: 15px;
+        p, li {
+            font-size: 14.5px;
             color: var(--text-main);
-            margin-bottom: 14px;
-            text-align: justify;
         }
-        ul, ol {
-            padding-left: 22px;
-            margin-bottom: 16px;
-            font-size: 15px;
+        ul {
+            padding-left: 20px;
         }
-        li {
-            margin-bottom: 8px;
-        }
-        .alert-box {
+        .highlight-box {
             background-color: rgba(217, 119, 6, 0.08);
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            padding: 16px;
-            margin: 20px 0;
-            font-size: 14px;
-            line-height: 1.6;
+            border: 1px solid rgba(217, 119, 6, 0.25);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin: 16px 0;
         }
-        .alert-box strong {
-            color: var(--primary);
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 14px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+            margin: 16px 0;
+            font-size: 13.5px;
         }
         th, td {
-            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
             text-align: left;
-            border-bottom: 1px solid var(--border);
         }
         th {
-            background-color: var(--table-header);
+            background-color: rgba(0,0,0,0.03);
             font-weight: 600;
-            color: var(--text-main);
         }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        code {
-            background-color: rgba(148, 163, 184, 0.15);
-            padding: 2px 6px;
+        .badge-safe {
+            display: inline-block;
+            background: #e6ffed;
+            color: #22863a;
+            border: 1px solid #34d058;
             border-radius: 4px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            padding: 1px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 36px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
             font-size: 13px;
-        }
-        .contact-card {
-            background-color: var(--table-header);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px 20px;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .contact-card p {
-            margin-bottom: 8px;
-        }
-        .contact-card p:last-child {
-            margin-bottom: 0;
-        }
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
             text-align: center;
-            font-size: 13px;
-            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <header>
-        <span class="badge">合规隐私政策</span>
-        <h1>《不卡带 (Unwind)》隐私政策与个人信息保护声明</h1>
-        <div class="meta-info">
-            <span>应用包名：<code>com.beckmint.unwind</code></span>
-            <span>适用版本：<strong>v0.6.9 及以上</strong></span>
-            <span>更新日期：<strong>2026年10月22日</strong></span>
-            <span>生效日期：<strong>2026年10月22日</strong></span>
-        </div>
-    </header>
-
-    <div class="alert-box">
-        <strong>【核心合规声明与零权限冷启动保障】</strong><br>
-        「不卡带 (Unwind)」是一款专为小折叠外屏及通用 Android 设备打造的纯本地拟物复古随身听。我们秉承“最小必要”与“纯净本地离线运行”原则：<br>
-        1. <strong>零权限纯净冷启动</strong>：首次安装启动并同意本隐私政策后，<strong>本应用绝不主动向系统申请任何媒体或存储权限</strong>。应用内置高保真离线音乐，未授予任何敏感权限亦可完整畅听与操控；<br>
-        2. <strong>按需申请与前置目的明示</strong>：严格遵循工信部 164 号文及主流应用商店隐私规范，仅在您主动点击「OPEN 出仓」选歌或导入本地视频时，在调起系统权限前通过前置说明弹窗明确告知权限用途，经您确认后才调起系统授权；若您暂不授权，关闭弹窗即可继续使用内置音乐，绝不强行索权；<br>
-        3. <strong>零隐私收集与零第三方追踪</strong>：应用无用户账号体系，不采集设备识别码（IMEI、MAC、OAID 等），未集成任何第三方商业广告 SDK、行为统计 SDK 或推送追踪组件。
+    <h1>不卡带（UNWIND）用户隐私保护政策</h1>
+    <div class="meta-tag">
+        开发者主体：BeckMint（独立开发者） &nbsp;|&nbsp; 应用包名：<code>com.beckmint.unwind</code> &nbsp;|&nbsp; 适用版本：v0.7.0 及以上 &nbsp;|&nbsp; 更新及生效日期：2026年10月23日
     </div>
 
-    <h2>一、我们如何收集与使用您的个人信息</h2>
-    <p>由于本应用为 100% 本地单机随身听，在日常运行中不会主动收集、存储或上传您的任何个人信息：</p>
+    <div class="highlight-box">
+        <p>【重要提示】「不卡带」（UNWIND）是一款专注于小折叠手机外屏及通用 Android 设备的拟物复古随身听与音乐播放器。我们秉承<strong>“数据最小化”</strong>、<strong>“零商业追踪”</strong>与<strong>“私有数据端到端安全掌控”</strong>原则：<br>
+        1. 本应用支持无网络离线畅听本地私藏曲库，默认不产生任何互联网数据传输；<br>
+        2. 为了满足用户对大容量私藏无损母带的串流需求，本应用新增飞牛私有云（fnOS / WebDAV）直连功能。该功能仅在您主动配置并启用时，通过网络权限与您自主指定的家用私有 NAS 设备建立点对点安全直连；<br>
+        3. 绝无任何第三方中转服务器、绝无商业广告、绝无统计打点 SDK，WebDAV 访问密钥采用底层硬件安全区（Android Keystore TEE / StrongBox）AES-256 加密保护，绝不收集或上传您的任何个人隐私数据。</p>
+    </div>
+
+    <h2>一、核心原则与郑重承诺</h2>
     <ul>
-        <li><strong>无账号体系：</strong>本应用无需注册、登录或绑定任何第三方账号，不收集姓名、手机号、邮箱、身份证件或任何社交账户信息。</li>
-        <li><strong>不采集设备特征码：</strong>不调用、不采集 IMEI、IMSI、MAC 地址、Android ID、OAID、ICCID、硬件序列号等敏感设备识别信息。</li>
-        <li><strong>不收集位置与通信记录：</strong>不申请地理位置权限，不访问通讯录、短信、通话记录、日历或相机。</li>
-        <li><strong>完全本地沙盒运行：</strong>您的自建歌单、7 款液晶背光配置、7 档硬件 EQ 模式、上次播放进度等偏好设置，全部保存在手机本地应用私有沙盒（Android DataStore）中，绝不上报云端。</li>
+        <li><strong>零商业广告与零行为追踪</strong>：本应用未集成任何第三方广告联盟 SDK、未集成任何统计分析或打点 SDK、未集成任何推送或行为追踪组件。</li>
+        <li><strong>无账号体系与零个人隐私收集</strong>：本应用无需注册、无需登录，不收集您的姓名、身份证号、手机号、通讯录、短信、精确地理位置或银行支付凭据。</li>
+        <li><strong>不采集设备敏感硬件标识</strong>：本应用不调用也不收集 IMEI、IMSI、MAC 地址、Android ID、OAID、SIM 卡序列号等任何敏感设备特征码。</li>
+        <li><strong>本地沙盒与硬件级凭证加密</strong>：个性化配置及播放偏好存储于手机本地应用私有沙盒中；您自主配置的飞牛私有云 NAS 凭据直接交由手机底层硬件安全芯片（TEE）AES-256 GCM 硬件加密存储，任何第三方乃至手机应用沙盒均无法导出明文。</li>
     </ul>
 
-    <h2>二、系统敏感权限申请与使用规则清单</h2>
-    <p>本应用严格落实工信部《常见类型移动互联网应用程序必要个人信息范围规定》，仅申请实现本地音视频播放与复古拟物交互所必需的系统权限：</p>
-
+    <h2>二、系统权限申请与使用规则清单</h2>
+    <p>本应用严格遵循工信部《常见类型移动互联网应用程序必要个人信息范围规定》及各大主流应用市场隐私合规规范，仅在实现具体业务场景所必需时按需申请系统权限：</p>
     <table>
         <thead>
             <tr>
-                <th style="width: 24%;">权限名称与代码</th>
-                <th style="width: 24%;">业务场景</th>
-                <th style="width: 36%;">权限申请时机与使用目的说明</th>
-                <th style="width: 16%;">是否可拒绝</th>
+                <th style="width: 20%;">权限名称</th>
+                <th style="width: 25%;">系统权限代码</th>
+                <th style="width: 35%;">使用场景与目的说明</th>
+                <th style="width: 20%;">是否可拒绝</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>读取音频文件</strong><br><code>READ_MEDIA_AUDIO</code><br><code>READ_EXTERNAL_STORAGE</code></td>
-                <td>本地音乐扫描与导入播放</td>
-                <td><strong>【按需申请·前置明示】</strong> 仅当您主动点击「OPEN 出仓」选择本地歌曲或导入文件夹时按需触发。在调起系统权限前，应用通过前置说明浮窗清晰告知使用目的。授权后仅用于本地扫描指定音频文件并解析 ID3 专辑封面与歌词加入磁带机队列。所有数据仅在内存解码，绝不上报或外发。</td>
-                <td>是（拒绝后不影响内置曲目播放与基础操控）</td>
+                <td><strong>网络连接与网络状态</strong></td>
+                <td><code>android.permission.INTERNET</code><br><code>android.permission.ACCESS_NETWORK_STATE</code></td>
+                <td><strong>【按需使用·主动配置】</strong>仅当您主动在应用设置中配置并连接飞牛私有云（fnOS / WebDAV）远程曲库时触发。用于在手机与您家庭私有云 NAS 设备之间建立点对点（P2P）无损音轨流式传输通道。绝不连接任何未经授权的第三方服务器，绝不上报任何数据。若不使用私有云功能，应用支持完全离线畅听本地曲库。</td>
+                <td><span class="badge-safe">可拒绝</span><br>（拒绝后仅影响私有云远程串流，本地播放功能完全不受影响）</td>
             </tr>
             <tr>
-                <td><strong>读取视频文件</strong><br><code>READ_MEDIA_VIDEO</code></td>
-                <td>显像管伴放与全屏视窗</td>
-                <td><strong>【按需申请·前置明示】</strong> 仅当您主动点击并使用“复古微视窗 / 口袋动漫影院”导入本地视频时触发，并在调起系统权限前明确告知用途。仅在本地读取您主动点选的本地 MP4/MOV 短片进行伴放与动态显像。</td>
-                <td>是（拒绝后仅影响本地视频伴随播放）</td>
+                <td><strong>读取本地音频</strong></td>
+                <td><code>android.permission.READ_MEDIA_AUDIO</code><br><code>android.permission.READ_EXTERNAL_STORAGE</code>（Android 12及以下）</td>
+                <td><strong>【按需申请·前置明示】</strong>仅当您主动点击「OPEN 出仓」选择手机本地音乐或文件夹加入歌单时触发。在拉起系统授权框前，应用会先弹出前置说明窗清晰告知用途。经您授权后，仅用于读取指定音频文件并在本地解码播放及解析内嵌专辑封面。</td>
+                <td><span class="badge-safe">可拒绝</span><br>（拒绝后不影响内置演示音乐与随身听基础体验）</td>
             </tr>
             <tr>
-                <td><strong>前台媒体服务</strong><br><code>FOREGROUND_SERVICE</code><br><code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code></td>
-                <td>后台平稳播放与锁屏外屏控制</td>
-                <td>确保当您合上小折叠手机翻盖、锁屏或退至后台时，音频平稳流畅持续播放，并在系统通知栏与外屏控制器上展示标准媒体控制卡片。</td>
-                <td>是</td>
+                <td><strong>读取本地视频</strong></td>
+                <td><code>android.permission.READ_MEDIA_VIDEO</code></td>
+                <td><strong>【按需申请·前置明示】</strong>仅当您主动导入并使用“复古微视窗 / 掌心动漫小影院”功能时，用于读取您指定的本地 MP4/MOV 视频短片进行伴放与动态显像。</td>
+                <td><span class="badge-safe">可拒绝</span></td>
             </tr>
             <tr>
-                <td><strong>保持屏幕唤醒</strong><br><code>WAKE_LOCK</code></td>
-                <td>桌面台历伴听模式</td>
-                <td>用于音频解码底层防止系统深度休眠引起播放卡顿，并在开启“桌面台历立放模式”时支持外屏常亮显示复古磁带动态运转。可在设置中调整休眠定时。</td>
-                <td>是</td>
+                <td><strong>前台媒体播放服务</strong></td>
+                <td><code>android.permission.FOREGROUND_SERVICE</code><br><code>android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK</code></td>
+                <td>用于在小折叠屏手机合盖常驻外屏、锁屏或切换至后台时，维持系统音频流稳定平滑播放，并在系统控制中心及外屏提供播放/暂停/切歌卡片。</td>
+                <td><span class="badge-safe">可拒绝</span></td>
             </tr>
             <tr>
-                <td><strong>控制设备振动</strong><br><code>VIBRATE</code></td>
-                <td>实体机械按键触感</td>
-                <td>在您点击拟物实体按键（PLAY、OPEN、REW/FF、卡带键）时，驱动手机马达提供短促清脆的物理机械段落反馈。可在设置中随时关闭。</td>
-                <td>是</td>
+                <td><strong>屏幕常亮与休眠管理</strong></td>
+                <td><code>android.permission.WAKE_LOCK</code></td>
+                <td>在音频解码播放过程中防止系统深度休眠导致杂音卡顿；在您开启“30°~60° 桌面台历悬停伴听模式”时支持外屏柔光半亮常显复古磁带动态界面。</td>
+                <td><span class="badge-safe">可拒绝</span></td>
             </tr>
             <tr>
-                <td><strong>网络连接与状态</strong><br><code>INTERNET</code><br><code>ACCESS_NETWORK_STATE</code></td>
-                <td>网络环境通信兼容</td>
-                <td>基础网络状态兼容配置。当前版本全流程核心播放为 100% 离线单机硬解；本应用绝不向任何远程云端服务器回传您的任何个人信息、设备信息或使用偏好。</td>
-                <td>是</td>
+                <td><strong>控制设备振动</strong></td>
+                <td><code>android.permission.VIBRATE</code></td>
+                <td>在您点击拟物随身听实体键帽（PLAY、OPEN、REW/FF、卡带键）时，驱动手机线性马达提供短促清脆的物理阻尼段落感。可在设置中随时关闭。</td>
+                <td><span class="badge-safe">可拒绝</span></td>
             </tr>
         </tbody>
     </table>
 
     <h2>三、第三方 SDK 目录与数据共享披露</h2>
-    <div class="alert-box">
-        <strong>【零第三方商业追踪承诺】</strong><br>
-        本应用郑重承诺：<strong>未集成任何第三方商业广告 SDK、未集成任何用户行为统计/打点分析 SDK、未集成任何第三方消息推送 SDK 或行为追踪组件</strong>。<br>
-        本应用仅使用 Google 官方开源核心库（Jetpack Compose 视图层、Media3/ExoPlayer 本地音频解码引擎、Coil-kt 本地图片加载器），上述基础库均在纯本地沙盒离线运行；<br>
-        我们绝不存在向任何第三方公司、组织或个人出售、出租、共享或转让用户个人信息的情形。
-    </div>
+    <p>本应用在此作出严正承诺：</p>
+    <ul>
+        <li><strong>零第三方商业广告 SDK</strong>：应用内绝无任何横幅广告、插屏广告、开屏广告或激励视频组件；</li>
+        <li><strong>零第三方用户分析或打点 SDK</strong>：未集成友盟、TalkingData、百度统计等任何打点埋点组件；</li>
+        <li><strong>零第三方消息推送 SDK</strong>：未集成任何自启动唤醒或后台拉活类推送服务；</li>
+        <li>本应用仅基于 Google 官方开源核心库（Jetpack Compose UI、Media3/ExoPlayer 本地音频引擎、OkHttp 网络连接库）构建，所有网络通信仅在您主动发起的 WebDAV 远程串流场景下发生，绝不存在任何向第三方机构、组织或开发者云端服务器上传、共享或转让用户个人数据的情形。</li>
+    </ul>
 
-    <h2>四、用户如何管理权限与数据</h2>
-    <p>您对您的设备权限与本地数据拥有完全的控制权：</p>
+    <h2>四、用户如何管理权限与彻底销毁数据</h2>
     <ol>
-        <li><strong>撤回系统授权：</strong>您可以随时通过手机系统设置查阅、变更或撤回权限授权（路径：系统【设置】 &gt; 【应用与权限】 &gt; 【应用管理】 &gt; 【不卡带】 &gt; 【权限】）。撤回读取媒体文件权限后，应用将无法读取本地音乐，但您仍可正常使用内置音乐畅听与全部随身听操作。</li>
-        <li><strong>彻底清除数据：</strong>您可以在上述系统应用管理界面中选择“清除数据/存储”或直接卸载本应用，应用沙盒内存储的所有播放列表和个性化设置将被一次性完全彻底销毁。</li>
+        <li><strong>权限撤回与管理</strong>：您可随时进入手机系统【设置】 > 【应用与权限】 > 【应用管理】 > 【不卡带】 > 【权限】，查阅并自由关闭任一已授予的权限。关闭网络权限后，应用将自动退回纯本地离线随身听工作模式。</li>
+        <li><strong>清除私有云凭据与本地数据</strong>：在应用内【设置 -> 飞牛私有云】中点击“断开连接并清空配置”，存储在硬件安全区（TEE）的 AES-256 加密凭证将被立即永久擦除；您亦可在系统应用管理中选择“清除数据”，应用沙盒内的所有本地配置将被一次性彻底销毁。</li>
     </ol>
 
     <h2>五、未成年人隐私特别保护</h2>
-    <p>本应用是一款单纯的离线音乐播放工具，不包含任何账户注册、社交互动、算法内容推荐或网络交易功能。若您是未满 18 周岁的未成年人，建议您在监护人的指导下阅读本隐私政策并使用本应用。我们不会主动收集未成年人的任何个人信息。</p>
+    <p>本应用是一款单纯的音乐与视频播放工具，不包含任何账户注册、社交互动、算法推荐或网络支付交易。若您是未满 18 周岁的未成年人，建议您在监护人的指导下阅读本隐私政策并使用本应用。我们不会主动收集未成年人的任何个人信息。</p>
 
-    <h2>六、隐私政策的修订与变更</h2>
-    <p>随着本应用功能的迭代升级或相关法律法规的要求，我们可能会适时修订本隐私政策的内容。修改后的隐私政策将在应用版本更新时随附更新，并在公开发布渠道（包括 GitHub 官方合规主页）进行公示。若涉及核心业务权限或数据处理方式的重大变更，我们将在应用启动或显著位置予以提示。</p>
+    <h2>六、隐私政策修订与公开访问渠道</h2>
+    <p>随着本应用功能的迭代升级或相关法律法规的要求，我们可能会适时修订本隐私政策的内容。修改后的隐私政策将在应用版本更新时随附更新，并在官方公开合规主页进行公示。您可通过以下官方渠道随时查阅最新版本：</p>
+    <ul>
+        <li><strong>在线公开访问 URL</strong>：<a href="https://beckmint.github.io/unwind-privacy-policy/" target="_blank">https://beckmint.github.io/unwind-privacy-policy/</a></li>
+        <li><strong>开源合规代码仓</strong>：<a href="https://github.com/BeckMint/unwind-privacy-policy" target="_blank">https://github.com/BeckMint/unwind-privacy-policy</a></li>
+    </ul>
 
     <h2>七、开发者信息与联系方式</h2>
-    <p>如果您对本隐私政策、个人信息保护或应用权限有任何疑问、意见、投诉或建议，您可以通过以下方式随时与开发者取得联系：</p>
-    
-    <div class="contact-card">
-        <p><strong>开发者主体：</strong>BeckMint（独立开发者）</p>
-        <p><strong>官方反馈邮箱：</strong><a href="mailto:beckmint@gmail.com" style="color: var(--primary); text-decoration: none;">beckmint@gmail.com</a></p>
-        <p><strong>开源支持与合规主页：</strong><a href="https://github.com/BeckMint/unwind-privacy-policy" target="_blank" style="color: var(--primary); text-decoration: none;">https://github.com/BeckMint/unwind-privacy-policy</a></p>
-        <p><strong>在线公开访问链接：</strong><a href="https://beckmint.github.io/unwind-privacy-policy/" target="_blank" style="color: var(--primary); text-decoration: none;">https://beckmint.github.io/unwind-privacy-policy/</a></p>
-        <p><strong>客服响应时限：</strong>我们承诺在收到您的邮件咨询或隐私申诉后，在 <strong>15 个工作日内</strong> 予以核查并正式答复处理。</p>
-    </div>
+    <p>如果您对本隐私政策、应用权限或个人数据处理有任何疑问、意见或建议，可通过以下官方渠道与开发者取得联系：</p>
+    <ul>
+        <li><strong>开发者主体</strong>：BeckMint（独立开发者）</li>
+        <li><strong>官方联系邮箱</strong>：<code>beckmint@gmail.com</code></li>
+        <li><strong>客服响应承诺</strong>：承诺在收到您的邮件咨询后，在 <strong>15 个工作日内</strong> 予以核查并正式答复。</li>
+    </ul>
 
-    <footer>
-        <p>© 2026 不卡带 (Unwind) · 专注掌心复古音乐仪式感 · 保留所有权利</p>
-    </footer>
+    <div class="footer">
+        &copy; 2026 BeckMint Studio. 保留所有权利。<br>
+        本隐私政策受中华人民共和国法律管辖并按其解释。
+    </div>
 </div>
 </body>
 </html>
