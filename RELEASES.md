@@ -9,12 +9,12 @@
 
 ---
 
-## 🌟 当前最新正式版：v0.8.4
+## 🌟 当前最新正式版：v0.8.5
 
-- **安装包文件**：[`releases/Unwind-v0.8.4-release.apk`](releases/Unwind-v0.8.4-release.apk)
-- **体积**：`4.73 MB`
+- **安装包文件**：[`releases/Unwind-v0.8.5-release.apk`](releases/Unwind-v0.8.5-release.apk)
+- **体积**：`4.75 MB`
 - **发布日期**：`2026-10-24`
-- **SHA-256 完整校验码**：`2b5b82264f6fb2d6c3ea5405e53fe605f9d9b253c53bb81aa6e2bb7c01a3eb23`
+- **SHA-256 完整校验码**：`949604946189d37c6c53a360cd7c6dd18c9ac536448bca592f431a9a1f6977b2`
 
 ### 核心新特性与优化：
 1. **深度适配 moto razr 50 ultra 4.0" 超大外屏与 vivo X Flip 双机型**：外屏专属双卡座高保真 Winamp 架构，弹窗视窗（设置、目录、播放列表等）全局居中避让镜头交互，全屏双击沉浸自适应；
@@ -31,6 +31,7 @@
 
 | 版本号 | 发布日期 | 安装包文件名 | 体积 | SHA-256 校验摘要 | 核心演进简述 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| **v0.8.5** | 2026-10-24 | [`Unwind-v0.8.5-release.apk`](releases/Unwind-v0.8.5-release.apk) | 4.75 MB | `949604946189d37c...` | moto razr 50 ultra 外屏 OPEN 目录与 SET 设置视窗完整避让双摄镜头底栏；OPEN 目录返回上一级（UP ⬆）滚动记忆重构；PLAYLIST 抽屉新增 CLEAR 一键清空播放列表并解除删除规则限制。 |
 | **v0.8.4** | 2026-10-24 | [`Unwind-v0.8.4-release.apk`](releases/Unwind-v0.8.4-release.apk) | 4.73 MB | `2b5b82264f6fb2d6...` | 全面适配 moto razr 50 ultra 与 vivo X Flip 双机型外屏；Winamp 拟物 UI 黄金排版重构与基线等高对齐（34dp）、复古 3-4dp 倒角；拟物磁带双对称齿轮与磁带走带物理重构；原音直通声波缩放防贴边；收音机响度与滤镜纯净度提升。 |
 | **v0.7.7** | 2026-10-23 | [`Unwind-v0.7.7-release.apk`](releases/Unwind-v0.7.7-release.apk) | 4.69 MB | `fb521242b0749ffe...` | 5 重拟物声音滤镜与声画一体联动，飞牛私有云 (fnOS / WebDAV) 远程无损直连，TEE AES-256 GCM 硬件密钥存储，Auto-Dim 微光伴听与双击全屏。 |
 | **v0.7.6** | 2026-10-23 | [`Unwind-v0.7.6-release.apk`](releases/Unwind-v0.7.6-release.apk) | 4.69 MB | `f96e73d9dd922945...` | 升级 VintageAudioTextureEngine 音频纹理引擎，优化黑胶微跳爆豆与磁带 Hiss 底噪合成拟真度，提速 WebDAV 目录索引与硬件安全凭证管理。 |
