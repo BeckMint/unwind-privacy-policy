@@ -345,7 +345,7 @@
         <h1 class="hero-title">📼 不卡带 (UNWIND) 产品发布页</h1>
         <p class="hero-subtitle">专为纵向小折叠手机（vivo X Flip 和 moto razr 50 ultra）外屏打造的纯粹拟物复古随身听与无损音乐播放器</p>
         <div class="hero-stats">
-            <div class="stat-pill">最新正式版: <strong>v0.8.8</strong></div>
+            <div class="stat-pill">最新正式版: <strong>v0.8.9</strong></div>
             <div class="stat-pill">更新时间: <strong>2026-10-25</strong></div>
             <div class="stat-pill">发布状态: <strong>正式发布通道</strong></div>
             <div class="stat-pill">安全承诺: <strong>官方原生签署 · 0第三方SDK</strong></div>
@@ -358,12 +358,12 @@
         <div class="card-header">
             <div>
                 <div class="version-title">
-                    v0.8.8 正式发布包
+                    v0.8.9 正式发布包
                     <span class="badge-latest">推荐升级</span>
                 </div>
                 <div class="release-date">发布日期: 2026-10-25 &nbsp;|&nbsp; 适用架构: ARM64-v8a / 32-bit 通用</div>
             </div>
-            <a href="releases/Unwind-v0.8.8-release.apk" download class="btn-download">
+            <a href="releases/Unwind-v0.8.9-release.apk" download class="btn-download">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 下载正式版 APK (4.77 MB)
             </a>
@@ -371,20 +371,20 @@
 
         <div class="pkg-info-grid">
             <div class="pkg-info-item"><strong>安装包名:</strong> com.beckmint.unwind</div>
-            <div class="pkg-info-item"><strong>文件名称:</strong> Unwind-v0.8.8-release.apk</div>
-            <div class="pkg-info-item"><strong>安装包大小:</strong> 4.77 MB (4,997,458 字节)</div>
+            <div class="pkg-info-item"><strong>文件名称:</strong> Unwind-v0.8.9-release.apk</div>
+            <div class="pkg-info-item"><strong>安装包大小:</strong> 4.77 MB (4,997,463 字节)</div>
             <div class="pkg-info-item"><strong>最低系统:</strong> Android 10 (API 29) +</div>
         </div>
 
         <div class="sha-box">
-            <span><strong>SHA-256 完整校验码:</strong> <code>7faef8252c8a4387fc6a6c70ee9f22836535e2c2f88b2e0384ac43fc39c99002</code></span>
+            <span><strong>SHA-256 完整校验码:</strong> <code>07a997235826c8dd688229ec9f0d798c431e5a94342775068275d57b5db7fa86</code></span>
         </div>
 
         <h3 style="font-size: 16px; margin: 18px 0 10px 0; color: var(--text-main);">🌟 本次核心升级亮点：</h3>
         <ul>
-            <li><strong>moto razr 50 ultra 双摄物理旋钮刻度圈同轴精准对齐</strong>：修复金属刻度环（Canvas）与物理镜头开孔同轴居中（水平 327dp 与 436dp，纵向 78dp 底栏严格居中），杜绝任何横向偏移；</li>
-            <li><strong>左旋钮刻字升级为完整英文「EQUALIZER」</strong>：左旋钮上方丝印文字由「EQ」改为「EQUALIZER」，与右旋钮「VOLUME」及左侧琴键注释完美平行且绝对居中于旋钮正上方；</li>
-            <li><strong>播放列表歌名显示规则全量重构与净化</strong>：智能清洗文件名音轨序号前缀（如「01. 」「01 - 」「01 」等），消除列表序号与专辑序号双重重复显示；彻底过滤 WebDAV 远程串流时附带的「 - 飞牛 NAS 远程」字样，清爽展示纯正歌名与歌手。</li>
+            <li><strong>双摄旋钮刻度与触控区域精准复原（318dp / 423dp）</strong>：精准复位左旋钮（EQUALIZER, 318dp）与右旋钮（VOLUME, 423dp），完美贴合 moto razr 50 ultra 物理镜头开孔，彻底解决音量旋钮因坐标偏差导致的旋转手势不生效问题，双指捏转调音灵敏顺滑；</li>
+            <li><strong>重构物理级「黑胶唱片 (Vinyl)」落针仪式声学</strong>：彻底剔除原有高频合成正弦波（消除电子音效），引入 58Hz 橡胶阻尼唱臂着盘机械低频撞击 (Sub-bass Cartridge Thump) + 真实金刚石针尖划入 PVC 音轨的微摩擦粉噪 (Lead-in Groove Scuff) + 天然偶发微尘静电声，纯粹还原真实唱片落针质感；</li>
+            <li><strong>ID3 标签主动预读与持久化元数据缓存 (MetadataCache)</strong>：新增播放列表异步主动预加载流水线与持久化元数据缓存。无论是本地曲库还是飞牛私有云 (NAS / WebDAV) 远程曲库，导入添加歌曲到播放列表时，即刻在后台预读并呈现歌手姓名，无需逐首播放即可完整展示「歌名 - 演唱者」，二次加载瞬时秒开。</li>
         </ul>
     </div>
 
@@ -396,7 +396,7 @@
         
         <div style="margin-bottom: 20px;">
             <h4 style="margin: 14px 0 8px 0; font-size: 15px; color: var(--text-main); font-weight: 700;">🔹 moto razr 50 ultra（4.0 英寸超大外屏）专属设置：</h4>
-            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v0.8.8-release.apk</code>；</div>
+            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v0.8.9-release.apk</code>；</div>
             <div class="guide-step"><strong>步骤 2：</strong>进入手机系统【设置】 > 【外屏】 > 【外屏应用】（或在桌面外屏卡片管理中）；</div>
             <div class="guide-step"><strong>步骤 3：</strong>在应用列表中勾选「不卡带 (Unwind)」允许在外屏显示与运行；</div>
             <div class="guide-step"><strong>步骤 4：</strong>长按应用卡片或在设置中选择「全屏显示 (Full Screen)」模式，使应用自适应覆盖整块 4.0 英寸大外屏；</div>
@@ -405,7 +405,7 @@
 
         <div>
             <h4 style="margin: 14px 0 8px 0; font-size: 15px; color: var(--text-main); font-weight: 700;">🔹 vivo X Flip（外屏魔镜）启用步骤：</h4>
-            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v0.8.8-release.apk</code>；</div>
+            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v0.8.9-release.apk</code>；</div>
             <div class="guide-step"><strong>步骤 2：</strong>打开手机系统【设置】 > 【外屏专区】或【魔镜应用 / 外屏应用管理】；</div>
             <div class="guide-step"><strong>步骤 3：</strong>在应用列表中找到「不卡带 (Unwind)」并勾选开启允许在外屏显示；</div>
             <div class="guide-step"><strong>步骤 4：</strong>合上手机翻盖，点亮外屏向左滑动至应用列表，点击「不卡带」图标即可开始沉浸播放！（长按可拖动至外屏首位，合盖双击秒开秒听）。</div>
@@ -418,6 +418,27 @@
     </div>
 
     <div class="history-list">
+        <div class="history-item">
+            <div class="history-header">
+                <div>
+                    <span class="history-tag">v0.8.8</span> &nbsp;
+                    <span class="release-date">2026-10-25</span> &nbsp;
+                    <span style="font-size: 12px; color: var(--text-secondary);">(4.77 MB)</span>
+                </div>
+                <a href="releases/Unwind-v0.8.8-release.apk" download class="btn-download-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    下载 Unwind-v0.8.8-release.apk
+                </a>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-family: ui-monospace, monospace; margin-bottom: 8px;">
+                SHA-256: <code>7faef8252c8a4387fc6a6c70ee9f2283...</code>
+            </div>
+            <ul>
+                <li><strong>moto razr 50 ultra 双摄物理旋钮刻度圈同轴精准对齐</strong>：修复金属刻度环（Canvas）与物理镜头开孔同轴居中（水平 327dp 与 436dp，纵向 78dp 底栏严格居中），杜绝任何横向偏移；</li>
+                <li><strong>左旋钮刻字升级为完整英文「EQUALIZER」</strong>：左旋钮上方丝印文字由「EQ」改为「EQUALIZER」，与右旋钮「VOLUME」及左侧琴键注释完美平行且绝对居中于旋钮正上方；</li>
+                <li><strong>播放列表歌名显示规则全量重构与净化</strong>：智能清洗文件名音轨序号前缀（如「01. 」「01 - 」「01 」等），消除列表序号与专辑序号双重重复显示；彻底过滤 WebDAV 远程串流时附带的「 - 飞牛 NAS 远程」字样，清爽展示纯正歌名与歌手。</li>
+            </ul>
+        </div>
         <div class="history-item">
             <div class="history-header">
                 <div>

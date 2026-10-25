@@ -9,12 +9,12 @@
 
 ---
 
-## 🌟 当前最新正式版：v0.8.8
+## 🌟 当前最新正式版：v0.8.9
 
-- **安装包文件**：[`releases/Unwind-v0.8.8-release.apk`](releases/Unwind-v0.8.8-release.apk)
+- **安装包文件**：[`releases/Unwind-v0.8.9-release.apk`](releases/Unwind-v0.8.9-release.apk)
 - **体积**：`4.77 MB`
 - **发布日期**：`2026-10-25`
-- **SHA-256 完整校验码**：`7faef8252c8a4387fc6a6c70ee9f22836535e2c2f88b2e0384ac43fc39c99002`
+- **SHA-256 完整校验码**：`07a997235826c8dd688229ec9f0d798c431e5a94342775068275d57b5db7fa86`
 
 ### 核心新特性与优化：
 1. **深度适配 moto razr 50 ultra 4.0" 超大外屏与 vivo X Flip 双机型**：外屏专属双卡座高保真 Winamp 架构，弹窗视窗（设置、目录、播放列表等）全局居中避让镜头交互，全屏双击沉浸自适应；
@@ -31,6 +31,7 @@
 
 | 版本号 | 发布日期 | 安装包文件名 | 体积 | SHA-256 校验摘要 | 核心演进简述 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| **v0.8.9** | 2026-10-25 | [`Unwind-v0.8.9-release.apk`](releases/Unwind-v0.8.9-release.apk) | 4.77 MB | `07a997235826c8dd...` | 精确复原 moto razr 50 ultra 双摄旋钮物理开孔基准坐标（318dp / 423dp），修复音量旋钮旋转响应；重构物理真实黑胶落针声学消除电子音；新增 ID3 标签主动预读与持久化缓存，导入歌曲即刻秒显歌手与曲目。 |
 | **v0.8.8** | 2026-10-25 | [`Unwind-v0.8.8-release.apk`](releases/Unwind-v0.8.8-release.apk) | 4.77 MB | `7faef8252c8a4387...` | 修复 moto razr 50 ultra 双摄旋钮刻度圆圈同轴对齐，左旋钮刻字升级为完整英文 EQUALIZER；彻底规范播放列表歌名显示规则，智能剥离专辑音轨序号并过滤远程 NAS 标签。 |
 | **v0.8.7** | 2026-10-25 | [`Unwind-v0.8.7-release.apk`](releases/Unwind-v0.8.7-release.apk) | 4.75 MB | `4a19d319c7e7d087...` | 新增 moto razr 50 ultra 外屏双摄物理旋钮（重音/音量双指防误触旋转电位器）；新增 MD (MiniDisc 磁光随身听) 复古声音滤镜与 40 秒抗震内存 (ESP) 律动；重构黑胶唱片 (Vinyl) 落针仪式声学并消除切滤镜杂音；优化 CD 裸盘光驱连续运转质感；解耦 EQ 音效与硬件滤镜；全量适配 vivo X Flip 与 moto razr 50 ultra 双折叠外屏。 |
 | **v0.8.5** | 2026-10-24 | [`Unwind-v0.8.5-release.apk`](releases/Unwind-v0.8.5-release.apk) | 4.75 MB | `949604946189d37c...` | moto razr 50 ultra 外屏 OPEN 目录与 SET 设置视窗完整避让双摄镜头底栏；OPEN 目录返回上一级（UP ⬆）滚动记忆重构；PLAYLIST 抽屉新增 CLEAR 一键清空播放列表并解除删除规则限制。 |
