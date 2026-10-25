@@ -14,7 +14,7 @@
 - **安装包文件**：[`releases/Unwind-v0.8.7-release.apk`](releases/Unwind-v0.8.7-release.apk)
 - **体积**：`4.75 MB`
 - **发布日期**：`2026-10-25`
-- **SHA-256 完整校验码**：`83e2e6e8723132f970741e215ede237d0940b8d838f5f3015ac648f1685bb6d3`
+- **SHA-256 完整校验码**：`a22d8d3d67b0d86f2db6254735bf76245e7f43d6d99ae09c0c1af7ef7e44677a`
 
 ### 核心新特性与优化：
 1. **深度适配 moto razr 50 ultra 4.0" 超大外屏与 vivo X Flip 双机型**：外屏专属双卡座高保真 Winamp 架构，弹窗视窗（设置、目录、播放列表等）全局居中避让镜头交互，全屏双击沉浸自适应；
@@ -31,7 +31,7 @@
 
 | 版本号 | 发布日期 | 安装包文件名 | 体积 | SHA-256 校验摘要 | 核心演进简述 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **v0.8.7** | 2026-10-25 | [`Unwind-v0.8.7-release.apk`](releases/Unwind-v0.8.7-release.apk) | 4.75 MB | `83e2e6e8723132f9...` | 新增 MD (MiniDisc 磁光随身听) 复古声音滤镜，实现方形快门卡带机芯、ATRAC 温润人声调音与 40 秒抗震内存 (ESP) 呼吸律动；优化 CD (Discman) 裸盘光驱连续运转质感与轻微主轴风声；重构黑胶唱片 (Vinyl) 起播落针仪式感与稀疏微爆豆物理声学；全面解耦 EQ 音效与硬件滤镜（引入 CLASSIC 古典并消除双重 TAPE 混淆）；Direct 直通模式矢量重构；全量适配 vivo X Flip 与 moto razr 50 ultra 双折叠外屏。 |
+| **v0.8.7** | 2026-10-25 | [`Unwind-v0.8.7-release.apk`](releases/Unwind-v0.8.7-release.apk) | 4.75 MB | `a22d8d3d67b0d86f...` | 新增 MD (MiniDisc 磁光随身听) 复古声音滤镜，实现方形快门卡带机芯、ATRAC 温润人声调音与 40 秒抗震内存 (ESP) 呼吸律动；优化 CD (Discman) 裸盘光驱连续运转质感与轻微主轴风声；重构黑胶唱片 (Vinyl) 起播落针仪式感与稀疏微爆豆物理声学；全面解耦 EQ 音效与硬件滤镜（引入 CLASSIC 古典并消除双重 TAPE 混淆）；Direct 直通模式矢量重构；全量适配 vivo X Flip 与 moto razr 50 ultra 双折叠外屏。 |
 | **v0.8.5** | 2026-10-24 | [`Unwind-v0.8.5-release.apk`](releases/Unwind-v0.8.5-release.apk) | 4.75 MB | `949604946189d37c...` | moto razr 50 ultra 外屏 OPEN 目录与 SET 设置视窗完整避让双摄镜头底栏；OPEN 目录返回上一级（UP ⬆）滚动记忆重构；PLAYLIST 抽屉新增 CLEAR 一键清空播放列表并解除删除规则限制。 |
 | **v0.8.4** | 2026-10-24 | [`Unwind-v0.8.4-release.apk`](releases/Unwind-v0.8.4-release.apk) | 4.73 MB | `2b5b82264f6fb2d6...` | 全面适配 moto razr 50 ultra 与 vivo X Flip 双机型外屏；Winamp 拟物 UI 黄金排版重构与基线等高对齐（34dp）、复古 3-4dp 倒角；拟物磁带双对称齿轮与磁带走带物理重构；原音直通声波缩放防贴边；收音机响度与滤镜纯净度提升。 |
 | **v0.7.7** | 2026-10-23 | [`Unwind-v0.7.7-release.apk`](releases/Unwind-v0.7.7-release.apk) | 4.69 MB | `fb521242b0749ffe...` | 5 重拟物声音滤镜与声画一体联动，飞牛私有云 (fnOS / WebDAV) 远程无损直连，TEE AES-256 GCM 硬件密钥存储，Auto-Dim 微光伴听与双击全屏。 |
