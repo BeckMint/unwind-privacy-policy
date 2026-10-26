@@ -82,6 +82,33 @@ An Unwind Theme is defined as a declarative `UnwindSkinSpec`:
 | `chassisBorder` | `Hex Color` | CNC specular rim highlight | Lighter than `chassisBg` for metallic shine |
 | `buttonIdleTop` | `Hex Color` | 3D piano keycap upper face gradient stop | Gives top-down lighting perspective |
 | `buttonIdleBottom`| `Hex Color` | 3D piano keycap lower face gradient stop | Darker than upper face by 20~30% |
+| `buttonBorder`    | `Hex Color` | Piano key specular bevel or glow rim     | Metallic chamfer or neon outline |
+| `chassisImage`    | `String`    | Optional relative texture path           | e.g. `"chassis.png"`, `"background.webp"` |
+
+### 3.3 Theme Bundle Packaging Format (.zip / .unwindskin)
+
+In addition to standalone JSON, Unwind supports complete theme bundles containing static images packaged as a standard `.zip` (or `.unwindskin`) archive:
+
+```text
+my_theme.zip
+├── theme.json           # Declarative specification contract (Required)
+├── chassis.png          # Custom hardware texture / brushed carbon / skin (Optional)
+└── preview.png          # Skin preview image (Optional)
+```
+
+- **Automatic Image Detection**: If `chassisImage: "chassis.png"` is declared in `theme.json`, that specific asset is loaded. If omitted, the engine automatically checks for `chassis.png`, `chassis.webp`, `background.png`, etc.
+
+### 3.4 Import, Auto-Apply & Deletion Guide
+
+1. **One-Tap Import & Auto-Apply (OPEN)**:
+   - In Unwind, tap **OPEN** to browse local storage or remote WebDAV NAS directories;
+   - Tap on any theme archive (labeled with a `🎨` badge and `[🎨 导入主题]` action pill);
+   - The app extracts the bundle internally, **immediately applies it to the active interface**, and registers it to the Theme selection list in Settings!
+2. **Long-Press Deletion & Safe Reset (SETTINGS)**:
+   - Tap **SET** and navigate to the "复古随身主题 / RETRO THEME" section;
+   - **Long-press** any newly added custom theme to activate Edit/Delete mode: **all custom themes will reveal a red `✕` icon at the top-right** (built-in themes never show the `✕` icon);
+   - Tap the `✕` icon to open the confirmation dialog;
+   - Confirming deletion wipes the extracted files and **safely reverts the player to the default built-in theme (Amber)**.
 
 ---
 
