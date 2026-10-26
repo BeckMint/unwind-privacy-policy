@@ -188,19 +188,19 @@
     </nav>
     <h1>不卡带（UNWIND）用户隐私保护政策</h1>
     <div class="meta-tag">
-        开发者主体：BeckMint（独立开发者） &nbsp;|&nbsp; 应用包名：<code>com.beckmint.unwind</code> &nbsp;|&nbsp; 适用版本：v0.7.0 及以上 &nbsp;|&nbsp; 更新及生效日期：2026年10月23日
+        开发者主体：BeckMint（独立开发者） &nbsp;|&nbsp; 应用包名：<code>com.beckmint.unwind</code> &nbsp;|&nbsp; 适用版本：v1.0.3 及以上 &nbsp;|&nbsp; 更新及生效日期：2026年10月26日
     </div>
 
     <div class="highlight-box">
         <p>【重要提示】「不卡带」（UNWIND）是一款专注于小折叠手机外屏及通用 Android 设备的拟物复古随身听与音乐播放器。我们秉承<strong>“数据最小化”</strong>、<strong>“零商业追踪”</strong>与<strong>“私有数据端到端安全掌控”</strong>原则：<br>
         1. 本应用支持无网络离线畅听本地私藏曲库，默认不产生任何互联网数据传输；<br>
         2. 为了满足用户对大容量私藏无损母带的串流需求，本应用新增飞牛私有云（fnOS / WebDAV）直连功能。该功能仅在您主动配置并启用时，通过网络权限与您自主指定的家用私有 NAS 设备建立点对点安全直连；<br>
-        3. 绝无任何第三方中转服务器、绝无商业广告、绝无统计打点 SDK，WebDAV 访问密钥采用底层硬件安全区（Android Keystore TEE / StrongBox）AES-256 加密保护，绝不收集或上传您的任何个人隐私数据。</p>
+        3. 绝无任何第三方中转服务器、绝无商业广告、绝无推送保活组件，WebDAV 访问密钥采用底层硬件安全区（Android Keystore TEE / StrongBox）AES-256 加密保护；引入基础统计与 APM 性能监控组件以守护应用稳定性，严格按最小必要原则收集匿名化运行指标，绝不收集或上传您的私藏文件或个人隐私数据。</p>
     </div>
 
     <h2>一、核心原则与郑重承诺</h2>
     <ul>
-        <li><strong>零商业广告与零行为追踪</strong>：本应用未集成任何第三方广告联盟 SDK、未集成任何统计分析或打点 SDK、未集成任何推送或行为追踪组件。</li>
+        <li><strong>零商业广告与零推送打扰</strong>：本应用未集成任何第三方商业广告联盟 SDK、未集成任何后台自启动或拉活推送服务。</li>
         <li><strong>无账号体系与零个人隐私收集</strong>：本应用无需注册、无需登录，不收集您的姓名、身份证号、手机号、通讯录、短信、精确地理位置或银行支付凭据。</li>
         <li><strong>不采集设备敏感硬件标识</strong>：本应用不调用也不收集 IMEI、IMSI、MAC 地址、Android ID、OAID、SIM 卡序列号等任何敏感设备特征码。</li>
         <li><strong>本地沙盒与硬件级凭证加密</strong>：个性化配置及播放偏好存储于手机本地应用私有沙盒中；您自主配置的飞牛私有云 NAS 凭据直接交由手机底层硬件安全芯片（TEE）AES-256 GCM 硬件加密存储，任何第三方乃至手机应用沙盒均无法导出明文。</li>
@@ -221,8 +221,14 @@
             <tr>
                 <td><strong>网络连接与网络状态</strong></td>
                 <td><code>android.permission.INTERNET</code><br><code>android.permission.ACCESS_NETWORK_STATE</code></td>
-                <td><strong>【按需使用·主动配置】</strong>仅当您主动在应用设置中配置并连接飞牛私有云（fnOS / WebDAV）远程曲库时触发。用于在手机与您家庭私有云 NAS 设备之间建立点对点（P2P）无损音轨流式传输通道。绝不连接任何未经授权的第三方服务器，绝不上报任何数据。若不使用私有云功能，应用支持完全离线畅听本地曲库。</td>
-                <td><span class="badge-safe">可拒绝</span><br>（拒绝后仅影响私有云远程串流，本地播放功能完全不受影响）</td>
+                <td><strong>【按需使用·主动配置】</strong>用于在您主动配置并启用飞牛私有云（fnOS / WebDAV）远程曲库时建立点对点串流传输通道；以及用于统计与 APM 性能监控组件的安全加密数据上报。若完全不使用网络功能，应用支持全离线畅听本地曲库。</td>
+                <td><span class="badge-safe">可拒绝</span><br>（拒绝后仅影响私有云串流与性能上报，本地播放功能完全不受影响）</td>
+            </tr>
+            <tr>
+                <td><strong>查看 Wi-Fi 状态</strong></td>
+                <td><code>android.permission.ACCESS_WIFI_STATE</code></td>
+                <td><strong>【按需使用】</strong>用于在网络串流与 APM 性能异常上报时智能判断当前 Wi-Fi 连通状态，优先在 Wi-Fi 网络下传输性能日志，节省用户移动蜂窝网络流量。</td>
+                <td><span class="badge-safe">可拒绝</span></td>
             </tr>
             <tr>
                 <td><strong>读取本地音频</strong></td>
@@ -258,12 +264,38 @@
     </table>
 
     <h2>三、第三方 SDK 目录与数据共享披露</h2>
-    <p>本应用在此作出严正承诺：</p>
+    <p>为保障产品基本运行稳定性与用户体验，并严格落实《个人信息保护法》及工信部移动互联网应用程序合规规范，本应用仅按<strong>「最小必要原则」</strong>接入了基础运营统计与性能监控组件。应用内接入的第三方 SDK 目录如下：</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 22%;">SDK 名称及所属机构</th>
+                <th style="width: 28%;">使用目的与业务场景</th>
+                <th style="width: 32%;">收集个人信息类型与方式</th>
+                <th style="width: 18%;">第三方隐私政策链接</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>友盟+ 移动统计 SDK (U-App)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk</small></td>
+                <td>用于统计 App 基本启动、活跃指标与版本分布，帮助开发者评估产品稳定性并改进外屏交互体验。</td>
+                <td><strong>收集方式</strong>：SDK 本地采集并通过加密网络传输<br><strong>信息类型</strong>：设备基础信息（设备型号、系统版本、网络状态）、应用运行状态（启动时间、会话时长）</td>
+                <td><a href="https://www.umeng.com/page/policy" target="_blank" rel="noopener">友盟+隐私政策</a></td>
+            </tr>
+            <tr>
+                <td><strong>友盟+ 应用性能监控 SDK (U-APM)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk, com.efs</small></td>
+                <td>用于实时监控并捕获应用崩溃异常（Java/Native Crash）、ANR 卡顿及性能异常，提升小折叠外屏运行稳定性。</td>
+                <td><strong>收集方式</strong>：SDK 本地捕获并通过加密网络传输<br><strong>信息类型</strong>：异常堆栈日志、设备基础信息（系统版本、CPU 架构、可用内存/存储状态、Wi-Fi 状态）</td>
+                <td><a href="https://www.umeng.com/page/policy" target="_blank" rel="noopener">友盟+隐私政策</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>本应用严正承诺：</strong></p>
     <ul>
-        <li><strong>零第三方商业广告 SDK</strong>：应用内绝无任何横幅广告、插屏广告、开屏广告或激励视频组件；</li>
-        <li><strong>零第三方用户分析或打点 SDK</strong>：未集成友盟、TalkingData、百度统计等任何打点埋点组件；</li>
-        <li><strong>零第三方消息推送 SDK</strong>：未集成任何自启动唤醒或后台拉活类推送服务；</li>
-        <li>本应用仅基于 Google 官方开源核心库（Jetpack Compose UI、Media3/ExoPlayer 本地音频引擎、OkHttp 网络连接库）构建，所有网络通信仅在您主动发起的 WebDAV 远程串流场景下发生，绝不存在任何向第三方机构、组织或开发者云端服务器上传、共享或转让用户个人数据的情形。</li>
+        <li><strong>零第三方商业广告 SDK</strong>：应用内绝无任何横幅广告、插屏广告、开屏广告、激励视频等商业化广告联盟组件；</li>
+        <li><strong>零第三方消息推送 SDK</strong>：未集成任何自启动唤醒、链式拉活或后台常驻推送服务；</li>
+        <li>本应用绝不会向任何第三方转让、出售或出租您的个人信息，所有数据传输均采用 HTTPS 安全加密通道进行。</li>
     </ul>
 
     <h2>四、用户如何管理权限与彻底销毁数据</h2>
