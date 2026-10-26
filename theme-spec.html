@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不卡带 (UNWIND) - 开放主题规范与 AI 提示词指南 (Open Theme Spec & AI Prompting)</title>
+    <style>
+        :root {
+            --bg-color: #f7f9fa;
+            --card-bg: #ffffff;
+            --text-main: #1f2328;
+            --text-secondary: #57606a;
+            --primary: #d97706;
+            --primary-hover: #b45309;
+            --border-color: #d0d7de;
+            --accent-green: #2da44e;
+            --badge-bg: rgba(217, 119, 6, 0.12);
+            --code-bg: #f6f8fa;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --card-bg: #161b22;
+                --text-main: #f0f6fc;
+                --text-secondary: #8b949e;
+                --primary: #f59e0b;
+                --primary-hover: #d97706;
+                --border-color: #30363d;
+                --accent-green: #3fb950;
+                --badge-bg: rgba(245, 158, 11, 0.16);
+                --code-bg: #0d1117;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.68;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+        .nav-logo { font-size: 20px; }
+        .nav-brand span span {
+            color: var(--primary);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13.5px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--text-main);
+            background: rgba(0,0,0,0.05);
+        }
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+            background: var(--badge-bg);
+        }
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--text-main);
+            color: var(--card-bg) !important;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-weight: 500;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.12), rgba(16, 185, 129, 0.08));
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px 24px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 27px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+        .hero-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0 0 18px 0;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .stat-pill strong {
+            color: var(--text-main);
+        }
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 0;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .dual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+        .dual-card {
+            background: rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .dual-card h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .prompt-box {
+            position: relative;
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text-main);
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-top: 14px;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: all 0.2s;
+        }
+        .copy-btn:hover {
+            background: var(--primary-hover);
+        }
+        .copy-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2328;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 24px;
+            font-size: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 999;
+        }
+        .copy-toast.show {
+            opacity: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 13.5px;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 9px 12px;
+            text-align: left;
+        }
+        th {
+            background: rgba(0,0,0,0.03);
+            font-weight: 600;
+        }
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .swatch-card {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .swatch-header {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .swatch-desc {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            min-height: 36px;
+        }
+        .palette-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .color-chip {
+            flex: 1;
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="nav-bar">
+        <div class="nav-brand">
+            <span class="nav-logo">📼</span>
+            <span class="nav-title">不卡带 <span>(UNWIND)</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link ">📜 隐私保护政策</a>
+            <a href="releases.html" class="nav-link ">📦 产品发布与下载</a>
+            <a href="theme-spec.html" class="nav-link active">🎨 开源主题与AI指南</a>
+            <a href="https://github.com/BeckMint/unwind-privacy-policy" target="_blank" class="nav-link github-btn">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub 源码
+            </a>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <h1 class="hero-title">🎨 Unwind 开放主题规范与 AI 提示词指南</h1>
+        <p class="hero-subtitle">传承 1997 年 Winamp 皮肤自由精神 · 专为人类与 AI 双向设计的声明式外屏皮肤体系 (v1.0.0)</p>
+        <div class="hero-stats">
+            <div class="stat-pill">开源协议: <strong>MIT License (100% 免费商用)</strong></div>
+            <div class="stat-pill">适用机型: <strong>小折叠外屏全机型 + 传统直板/内屏</strong></div>
+            <div class="stat-pill">AI 支持: <strong>Claude / GPT-4o / Gemini / Cursor 一键生成</strong></div>
+        </div>
+    </div>
+
+    <!-- Dual Audience -->
+    <div class="section-card">
+        <h2 class="section-title">✨ 核心愿景：面向人类工程师与 AI 助手的双重规范</h2>
+        <p>1997 年，Winamp 凭借开放的皮肤（Skin）机制，将播放器的灵魂与视觉统治权交还给了全世界的音乐爱好者。27 年后，<strong>「不卡带 (Unwind)」</strong>将这份纯粹的硬件拟物自由带到了折叠屏时代。</p>
+        <div class="dual-grid">
+            <div class="dual-card">
+                <h3>👨‍💻 面向人类设计师与开发者</h3>
+                <p>完全声明式的 JSON / Kotlin 属性契约，支持对点阵高亮色、鬼影像素色、拉丝机体底盘、微倒角琴键按键以及实体镜头旋钮光圈进行全维度定制。</p>
+            </div>
+            <div class="dual-card">
+                <h3>🤖 面向 AI 助手 (Claude / GPT / Cursor)</h3>
+                <p>无需手写十六进制配色！复制下方标准 AI 提示词模板发给大语言模型，AI 即可根据你指定的复古硬件概念（如赛博朋克、包豪斯、索尼初代 Walkman）秒级输出开箱即用的完整主题。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Prompting Guide -->
+    <div class="section-card" id="ai-prompt">
+        <h2 class="section-title">🤖 AI 提示词指南 (复制即用)</h2>
+        <p>将以下提示词模板复制到 <strong>Claude, ChatGPT, Gemini 或 Cursor</strong> 中，只需将 <code>[CONCEPT]</code> 替换为您喜爱的硬件概念：</p>
+        
+        <div class="prompt-box" id="promptText">You are an expert industrial designer specializing in retro skeuomorphic audio hardware and modern mobile design.
+Generate a compliant theme for the open-source "Unwind (不卡带)" retro player app based on this concept:
+CONCEPT: [在这里输入你的设计概念，例如: "Cyberpunk 2077 Night City", "1968 Braun Dieter Rams Minimalist", 或 "1980s Neon Synthwave Sunset"]
+
+The output must strictly conform to the Unwind Theme Specification (v1.0.0).
+
+Output format:
+1. Short design summary & historical hardware inspiration (2-3 sentences).
+2. JSON configuration block conforming to the schema:
+{
+  "id": "theme_identifier",
+  "name": "DISPLAY NAME",
+  "author": "Your Name / Handle",
+  "license": "MIT",
+  "description": "Short summary",
+  "screenTarget": "AUTO",
+  "colors": {
+    "lcdPrimary": "#...",
+    "lcdDim": "#...",
+    "lcdBg": "#...",
+    "isLightBg": false,
+    "hardwareAccent": "#..."
+  },
+  "chassis": {
+    "chassisBg": "#...",
+    "chassisBorder": "#...",
+    "chassisHighlight": "#...",
+    "chassisShadow": "#..."
+  },
+  "controls": {
+    "buttonIdleTop": "#...",
+    "buttonIdleBottom": "#...",
+    "buttonBorder": "#...",
+    "isWinampStyle": false
+  }
+}
+3. Kotlin DSL enum snippet ready to be added to RetroTheme.kt.
+<button class="copy-btn" onclick="copyPrompt()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    一键复制 AI 提示词
+</button>
+</div>
+    </div>
+
+    <!-- Property Reference -->
+    <div class="section-card">
+        <h2 class="section-title">📋 规范参数速查表 (Theme Properties)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>属性字段</th>
+                    <th>类型</th>
+                    <th>设计说明</th>
+                    <th>推荐取值与设计法则</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td>String</td>
+                    <td>唯一主题标识符</td>
+                    <td>小写英文字母与下划线，例如 <code>cyberpunk_neon</code></td>
+                </tr>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>String</td>
+                    <td>LCD 点阵屏显示名称</td>
+                    <td>建议不超过 12 个大写字母，以确保在复古点阵屏中居中整齐</td>
+                </tr>
+                <tr>
+                    <td><code>lcdPrimary</code></td>
+                    <td>Hex Color</td>
+                    <td>点阵高亮像素、VU表活跃指示</td>
+                    <td>高饱和高明度，与 <code>lcdBg</code> 对比度必须 &gt; 7:1</td>
+                </tr>
+                <tr>
+                    <td><code>lcdDim</code></td>
+                    <td>Hex Color</td>
+                    <td>未点亮鬼影像素 (Ghost Matrix)</td>
+                    <td>低对比度微光，提供真实物理液晶面板反光感</td>
+                </tr>
+                <tr>
+                    <td><code>lcdBg</code></td>
+                    <td>Hex Color</td>
+                    <td>点阵液晶背光腔体底色</td>
+                    <td>暗色系通常为 <code>#000000</code> ~ <code>#0A100D</code>；EL冷光通常为 <code>#98B828</code></td>
+                </tr>
+                <tr>
+                    <td><code>isLightBg</code></td>
+                    <td>Boolean</td>
+                    <td>是否为全亮反衬背光</td>
+                    <td>为 <code>true</code> 时系统将自动将点阵像素反相为深色墨水显示</td>
+                </tr>
+                <tr>
+                    <td><code>hardwareAccent</code></td>
+                    <td>Hex Color</td>
+                    <td>镜头刻度环、电位器圆弧与按键倒角</td>
+                    <td>机械高光主色，通常呼应 <code>lcdPrimary</code> 或采用撞色设计</td>
+                </tr>
+                <tr>
+                    <td><code>chassisBg</code></td>
+                    <td>Hex Color</td>
+                    <td>机体外壳金属/拉丝底色</td>
+                    <td>阳极氧化铝合金、锻造碳或复古米白质感</td>
+                </tr>
+                <tr>
+                    <td><code>buttonIdleTop / Bottom</code></td>
+                    <td>Hex Color</td>
+                    <td>3D 琴键按键上下渐变色</td>
+                    <td>上高光下暗部（落差 20%~30%），营造顶置光源下的拟物立体凸起</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Showcase Themes -->
+    <div class="section-card">
+        <h2 class="section-title">🌟 官方典范主题 (Showcase Themes)</h2>
+        <div class="swatch-grid">
+            <div class="swatch-card">
+                <div class="swatch-header">
+                    <span>CYBERPUNK</span>
+                    <span style="font-size:12px;color:var(--primary)">2077</span>
+                </div>
+                <div class="swatch-desc">高压荧光青激光点阵 + 烈焰粉镜头电位器 + 锻造碳机体。</div>
+                <div class="palette-row">
+                    <div class="color-chip" style="background:#00FFCC" title="lcdPrimary: #00FFCC"></div>
+                    <div class="color-chip" style="background:#00332B" title="lcdDim: #00332B"></div>
+                    <div class="color-chip" style="background:#FF007F" title="hardwareAccent: #FF007F"></div>
+                    <div class="color-chip" style="background:#0D1117" title="chassisBg: #0D1117"></div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-header">
+                    <span>BRAUN 1968</span>
+                    <span style="font-size:12px;color:var(--primary)">Dieter Rams</span>
+                </div>
+                <div class="swatch-desc">迪特·拉姆斯极简包豪斯暖象牙白 + 德国工业安全橙指示点。</div>
+                <div class="palette-row">
+                    <div class="color-chip" style="background:#1A1A1A" title="lcdPrimary: #1A1A1A"></div>
+                    <div class="color-chip" style="background:#E8E4DA" title="lcdBg: #E8E4DA"></div>
+                    <div class="color-chip" style="background:#FF5500" title="hardwareAccent: #FF5500"></div>
+                    <div class="color-chip" style="background:#DCD8CC" title="chassisBg: #DCD8CC"></div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-header">
+                    <span>TPS-L2 1979</span>
+                    <span style="font-size:12px;color:var(--primary)">Sony初代</span>
+                </div>
+                <div class="swatch-desc">索尼 1979 年金属深海蓝 + 香槟银拉丝实体键与热光橙点缀。</div>
+                <div class="palette-row">
+                    <div class="color-chip" style="background:#00E1D9" title="lcdPrimary: #00E1D9"></div>
+                    <div class="color-chip" style="background:#1E3B68" title="chassisBg: #1E3B68"></div>
+                    <div class="color-chip" style="background:#FF6B00" title="hardwareAccent: #FF6B00"></div>
+                    <div class="color-chip" style="background:#C8D1DC" title="buttonTop: #C8D1DC"></div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-header">
+                    <span>WINAMP 1997</span>
+                    <span style="font-size:12px;color:var(--primary)">Classic</span>
+                </div>
+                <div class="swatch-desc">千禧年经典翠绿动态电平表 + 纯黑金属机柜沉浸式双卡座。</div>
+                <div class="palette-row">
+                    <div class="color-chip" style="background:#00FF00" title="lcdPrimary: #00FF00"></div>
+                    <div class="color-chip" style="background:#003300" title="lcdDim: #003300"></div>
+                    <div class="color-chip" style="background:#00FF00" title="hardwareAccent: #00FF00"></div>
+                    <div class="color-chip" style="background:#1C1F26" title="chassisBg: #1C1F26"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Licensing & Submission -->
+    <div class="section-card">
+        <h2 class="section-title">⚖️ 商业授权与社区提交 (MIT License)</h2>
+        <p>1. <strong>免费商用与自由分发</strong>：依据 MIT 开源协议，您使用本规范生成的任何主题，均可自由用于个人、商业应用、独立发布或捆绑销售，无需支付任何版税或预先授权；</p>
+        <p>2. <strong>提交至官方曲库</strong>：欢迎将您使用 AI 或手动设计的优雅主题 Pull Request 到官方 GitHub 仓库，审核合并后将直接内置入全量用户的外屏主题菜单中！</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 BeckMint Studio · 不卡带 (UNWIND) 官方开源主题规范与社区文档<br>
+        遵循 MIT 免费商用开源协议 · 拥抱自由硬件精神与 AI 创造力
+    </div>
+</div>
+
+<div class="copy-toast" id="copyToast">✅ 已复制到剪贴板！可以直接粘贴给 Claude / ChatGPT / Gemini / Cursor 使用</div>
+
+<script>
+function copyPrompt() {
+    const text = document.getElementById('promptText').innerText.replace('一键复制 AI 提示词', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2500);
+    }).catch(err => {
+        alert('复制失败，请手动选取复制');
+    });
+}
+</script>
+</body>
+</html>
