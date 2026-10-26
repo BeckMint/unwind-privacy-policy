@@ -3,7 +3,8 @@
 欢迎查阅「不卡带 (Unwind)」官方版本演进记录与安装包下载清单。本仓库为开源合规与产品正式交付公开仓。
 
 - **官方在线产品发布与下载页**：https://beckmint.github.io/unwind-privacy-policy/releases.html
-- **官方开源主题与AI生成指南**：https://beckmint.github.io/unwind-privacy-policy/theme-spec.html
+- **官方开源主题与AI生成指南 (在线网页)**：https://beckmint.github.io/unwind-privacy-policy/theme-spec.html
+- **官方开源主题规范文档 (GitHub)**：[🇨🇳 简体中文](THEME_SPEC_CN.md) | [🇬🇧 English](THEME_SPEC.md)
 - **官方在线隐私保护政策页**：https://beckmint.github.io/unwind-privacy-policy/
 - **开发者**：BeckMint（独立开发者）
 - **适用平台**：Android 10+ / 专为纵向小折叠手机（vivo X Flip 和 moto razr 50 ultra）外屏及通用内屏打造

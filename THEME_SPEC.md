@@ -1,5 +1,7 @@
 # Unwind Retro Player - Open Theme Specification & AI Prompting Guide (v1.0.0)
 
+**English** | [简体中文 (Chinese Version)](THEME_SPEC_CN.md)
+
 > **License**: MIT License — 100% Free for Personal & Commercial Use.  
 > Inspired by the legendary 1997 Winamp Skinning Movement. Dedicated to foldable outer-screens, smart cover displays, and retro hardware audio enthusiasts worldwide.
 
