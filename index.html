@@ -170,6 +170,7 @@
     </style>
 </head>
 <body>
+<div style="padding:10px;text-align:center"><a href="https://beckmint.github.io/unwind-privacy-policy/releases.html">当前版本 1.0.7 · RX-C45 更新与下载</a></div>
 <div class="container">
     <nav class="nav-bar">
         <div class="nav-brand">
@@ -188,40 +189,46 @@
     </nav>
     <h1>不卡带（UNWIND）用户隐私保护政策</h1>
     <div class="meta-tag">
-        开发者主体：BeckMint（独立开发者） &nbsp;|&nbsp; 应用包名：<code>com.beckmint.unwind</code> &nbsp;|&nbsp; 适用版本：v1.0.3 及以上 &nbsp;|&nbsp; 更新及生效日期：2026年10月26日
+        开发者主体：BeckMint（独立开发者） &nbsp;|&nbsp; 应用包名：<code>com.beckmint.unwind</code> &nbsp;|&nbsp; 适用版本：v1.0.4 及以上 &nbsp;|&nbsp; 更新及生效日期：2026年10月28日
     </div>
 
     <div class="highlight-box">
-        <p>【重要提示】「不卡带」（UNWIND）是一款专注于小折叠手机外屏及通用 Android 设备的拟物复古随身听与音乐播放器。我们秉承<strong>“数据最小化”</strong>、<strong>“零商业追踪”</strong>与<strong>“私有数据端到端安全掌控”</strong>原则：<br>
-        1. 本应用支持无网络离线畅听本地私藏曲库，默认不产生任何互联网数据传输；<br>
-        2. 为了满足用户对大容量私藏无损母带的串流需求，本应用新增飞牛私有云（fnOS / WebDAV）直连功能。该功能仅在您主动配置并启用时，通过网络权限与您自主指定的家用私有 NAS 设备建立点对点安全直连；<br>
-        3. 绝无任何第三方中转服务器、绝无商业广告、绝无推送保活组件，WebDAV 访问密钥采用底层硬件安全区（Android Keystore TEE / StrongBox）AES-256 加密保护；引入基础统计与 APM 性能监控组件以守护应用稳定性，严格按最小必要原则收集匿名化运行指标，绝不收集或上传您的私藏文件或个人隐私数据。</p>
+        <p>【重要提示】「不卡带」（UNWIND）是一款专注于小折叠手机外屏及通用 Android 设备的拟物复古随身听与音乐播放器。我们秉承<strong>“先同意后采集”</strong>、<strong>“数据最小化”</strong>、<strong>“零商业广告追踪”</strong>与<strong>“私有数据端到端安全掌控”</strong>原则：<br>
+        1. <strong>先同意、后采集</strong>：在您首次启动本应用并点击隐私弹窗「同意并继续」之前，本应用及内嵌第三方 SDK <strong>绝不提前初始化、绝不读取传感器数据、绝不读取 Android ID 或任何个人信息</strong>；<br>
+        2. 本应用支持无网络离线畅听本地私藏曲库，并提供可选的飞牛私有云（fnOS / WebDAV）点对点直连功能（凭据采用 Android Keystore TEE AES-256 加密保护）；<br>
+        3. 仅在您同意本隐私政策后，在折叠屏外屏机型上调用方向/加速度传感器用于正反握持画面自适应翻转（仅本地计算），并初始化友盟+移动统计、U-APM 性能监控及友盟智能反作弊组件（asms SDK）用于闪退诊断与基础统计。</p>
     </div>
 
     <h2>一、核心原则与郑重承诺</h2>
     <ul>
+        <li><strong>严格「先同意、后采集」</strong>：用户点击同意隐私政策前（包括点击不同意退出或查阅政策全文期间），绝不调用任何传感器或初始化第三方 SDK。</li>
         <li><strong>零商业广告与零推送打扰</strong>：本应用未集成任何第三方商业广告联盟 SDK、未集成任何后台自启动或拉活推送服务。</li>
-        <li><strong>无账号体系与零个人隐私收集</strong>：本应用无需注册、无需登录，不收集您的姓名、身份证号、手机号、通讯录、短信、精确地理位置或银行支付凭据。</li>
-        <li><strong>不采集设备敏感硬件标识</strong>：本应用不调用也不收集 IMEI、IMSI、MAC 地址、Android ID、OAID、SIM 卡序列号等任何敏感设备特征码。</li>
-        <li><strong>本地沙盒与硬件级凭证加密</strong>：个性化配置及播放偏好存储于手机本地应用私有沙盒中；您自主配置的飞牛私有云 NAS 凭据直接交由手机底层硬件安全芯片（TEE）AES-256 GCM 硬件加密存储，任何第三方乃至手机应用沙盒均无法导出明文。</li>
+        <li><strong>无账号体系与最小化收集</strong>：本应用无需注册、无需登录，不收集您的姓名、身份证号、手机号、通讯录、通话记录、短信、剪贴板、应用安装列表或精确地理位置。</li>
+        <li><strong>本地沙盒与硬件级凭证加密</strong>：个性化配置及播放偏好存储于手机本地应用私有沙盒中；您自主配置的飞牛私有云 NAS 凭据直接交由手机底层硬件安全芯片（TEE）AES-256 GCM 硬件加密存储。</li>
     </ul>
 
-    <h2>二、系统权限申请与使用规则清单</h2>
-    <p>本应用严格遵循工信部《常见类型移动互联网应用程序必要个人信息范围规定》及各大主流应用市场隐私合规规范，仅在实现具体业务场景所必需时按需申请系统权限：</p>
+    <h2>二、系统权限与传感器使用规则清单</h2>
+    <p>本应用严格遵循工信部《常见类型移动互联网应用程序必要个人信息范围规定》及各大主流应用市场隐私合规规范，仅在您同意隐私政策后按需申请或调用以下系统权限与传感器：</p>
     <table>
         <thead>
             <tr>
-                <th style="width: 20%;">权限名称</th>
-                <th style="width: 25%;">系统权限代码</th>
+                <th style="width: 20%;">权限/传感器名称</th>
+                <th style="width: 25%;">系统代码 / 接口</th>
                 <th style="width: 35%;">使用场景与目的说明</th>
                 <th style="width: 20%;">是否可拒绝</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td><strong>传感器信息<br>（加速度/方向传感器）</strong></td>
+                <td><code>OrientationEventListener</code><br><code>Sensor.TYPE_ACCELEROMETER</code></td>
+                <td><strong>【同意隐私政策后调用】</strong>仅在您点击「同意并继续」隐私政策后，在折叠屏外屏运行期间读取设备加速度/方向角，用于检测外屏正握（UPRIGHT）或倒置握持（INVERTED）状态并自动翻转界面布局。点击同意前绝不调用；数据仅在本地内存实时计算，绝不存储或上传。</td>
+                <td><span class="badge-safe">可切换</span><br>（支持界面内手动切换正反方向）</td>
+            </tr>
+            <tr>
                 <td><strong>网络连接与网络状态</strong></td>
                 <td><code>android.permission.INTERNET</code><br><code>android.permission.ACCESS_NETWORK_STATE</code></td>
-                <td><strong>【按需使用·主动配置】</strong>用于在您主动配置并启用飞牛私有云（fnOS / WebDAV）远程曲库时建立点对点串流传输通道；以及用于统计与 APM 性能监控组件的安全加密数据上报。若完全不使用网络功能，应用支持全离线畅听本地曲库。</td>
+                <td><strong>【按需使用·主动配置】</strong>用于在您主动配置并启用飞牛私有云（fnOS / WebDAV）远程曲库时建立点对点串流传输通道；以及在您同意隐私政策后用于友盟+统计与 U-APM 性能监控组件的安全加密数据上报。若完全不使用网络功能，应用支持全离线畅听本地曲库。</td>
                 <td><span class="badge-safe">可拒绝</span><br>（拒绝后仅影响私有云串流与性能上报，本地播放功能完全不受影响）</td>
             </tr>
             <tr>
@@ -279,13 +286,19 @@
             <tr>
                 <td><strong>友盟+ 移动统计 SDK (U-App)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk</small></td>
                 <td>用于统计 App 基本启动、活跃指标与版本分布，帮助开发者评估产品稳定性并改进外屏交互体验。</td>
-                <td><strong>收集方式</strong>：SDK 本地采集并通过加密网络传输<br><strong>信息类型</strong>：设备基础信息（设备型号、系统版本、网络状态）、应用运行状态（启动时间、会话时长）</td>
+                <td><strong>收集方式</strong>：用户点击「同意并继续」隐私政策后由 SDK 采集并加密传输（未同意前绝不调用）<br><strong>信息类型</strong>：设备标识符（<strong>Android ID</strong>、OAID）、设备基础信息（品牌、型号、系统版本、分辨率、网络状态）、应用运行状态</td>
                 <td><a href="https://www.umeng.com/page/policy" target="_blank" rel="noopener">友盟+隐私政策</a></td>
             </tr>
             <tr>
-                <td><strong>友盟+ 应用性能监控 SDK (U-APM)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk, com.efs</small></td>
+                <td><strong>友盟智能反作弊组件 (asms SDK)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk:asms</small></td>
+                <td>作为友盟统计基础安全组件，用于识别异常虚假流量、保障统计数据真实性与反作弊安全校验。</td>
+                <td><strong>收集方式</strong>：用户点击「同意并继续」隐私政策后随友盟统计初始化采集（未同意前绝不读取 Android ID）<br><strong>信息类型</strong>：设备标识符（<strong>Android ID</strong>、OAID）、设备型号、系统版本及基础环境特征</td>
+                <td><a href="https://www.umeng.com/page/policy" target="_blank" rel="noopener">友盟+隐私政策</a></td>
+            </tr>
+            <tr>
+                <td><strong>友盟+ 应用性能监控 SDK (U-APM)</strong><br><small>友盟同欣（北京）科技有限公司<br>包名：com.umeng.umsdk:apm, com.efs</small></td>
                 <td>用于实时监控并捕获应用崩溃异常（Java/Native Crash）、ANR 卡顿及性能异常，提升小折叠外屏运行稳定性。</td>
-                <td><strong>收集方式</strong>：SDK 本地捕获并通过加密网络传输<br><strong>信息类型</strong>：异常堆栈日志、设备基础信息（系统版本、CPU 架构、可用内存/存储状态、Wi-Fi 状态）</td>
+                <td><strong>收集方式</strong>：用户点击「同意并继续」隐私政策后由 SDK 本地捕获并通过加密网络传输<br><strong>信息类型</strong>：设备标识符（<strong>Android ID</strong>）、异常堆栈日志、设备基础信息（系统版本、CPU 架构、可用内存/存储状态、Wi-Fi 状态）</td>
                 <td><a href="https://www.umeng.com/page/policy" target="_blank" rel="noopener">友盟+隐私政策</a></td>
             </tr>
         </tbody>

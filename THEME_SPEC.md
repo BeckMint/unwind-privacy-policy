@@ -261,3 +261,9 @@ Output format:
 
 1. **Free for Commercial Use**: You may bundle, sell, or distribute custom themes created with this specification without paying royalties or requiring prior approval.
 2. **Contributions**: To submit your theme for inclusion in the official Unwind build, open a Pull Request on GitHub with your theme JSON and screenshot!
+
+## RX-C45 built-in preset and inner display (App 1.0.7, 2026-10-30)
+
+RX_C45 (display name RX-C45) is the default preset when no saved selection exists. It uses a warm silver chassis, a grey-brown control plate, monochrome LCDs and a red OPEN key. Saved selections take precedence. Its horizontal sliders, four transport keys, HOLD rocker and National badge are native components selected by the built-in preset ID; importing its color values does not reproduce this dedicated geometry.
+
+Imported themes continue to map the supported chassis, LCD and button colors/material properties onto the corresponding general layout. Do not invent RX-C45 geometry fields in theme JSON. Inner pages share the metal frame, labels and footer height; text follows the playlist font preference. The 95% visual fidelity target remains unverified. This section documents the app implementation and does not change the v1.0.0 theme file format.
