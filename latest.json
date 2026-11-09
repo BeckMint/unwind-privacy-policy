@@ -1,8 +1,8 @@
 {
-  "versionCode": 1029,
-  "versionName": "1.0.29",
+  "versionCode": 1030,
+  "versionName": "1.0.30",
   "vivoVersionCode": 1004,
-  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.29-release.apk",
-  "sha256": "ee714535fc0baf987c60c508428119cc030d1b2029dd7a89acbde6adbc334af4",
-  "notes": "RX-C45银/赤切片主题、折叠屏内屏自适应、主题色滤镜动效、按滤镜记忆噪音量及暂停时停止滤镜噪音。"
+  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.30-release.apk",
+  "sha256": "28174221bc04b93359c22529be3ffaa10c081a1f332a83bf9503fe1c094fe134",
+  "notes": "系统媒体音量同步；WSZ 皮肤确认导入、按钮边界、列表等高背景与左上文字标题；简化进度条。微信输入法兼容问题仍保留，可粘贴或切换系统输入法。"
 }
