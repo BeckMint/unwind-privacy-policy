@@ -88,4 +88,4 @@
 
 ## 版本资料核对（2026-10-30）
 
-当前App为1.0.7，界面及主题更新见[发布页](https://beckmint.github.io/unwind-privacy-policy/releases.html)。本次仅同步版本导航，本文所列隐私政策更新/生效日期及数据处理条款保持原文。
+当前App为1.0.29，界面及主题更新见[发布页](https://beckmint.github.io/unwind-privacy-policy/releases.html)。本文所列隐私政策更新/生效日期及数据处理条款保持原文。
