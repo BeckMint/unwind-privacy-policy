@@ -344,10 +344,10 @@
 
     <div class="hero-banner">
         <h1 class="hero-title">📼 不卡带 (UNWIND) 产品发布页</h1>
-        <p class="hero-subtitle">面向折叠屏内外屏的复古音视频播放器 · RX-C45 银灰金属与黑白 LCD</p>
+        <p class="hero-subtitle">面向直板大屏与折叠屏内外屏的复古音视频播放器 · Nothing OS 单色图标与 RX-C45</p>
         <div class="hero-stats">
-            <div class="stat-pill">最新正式版: <strong>v1.0.30</strong></div>
-            <div class="stat-pill">更新时间: <strong>2026-11-09</strong></div>
+            <div class="stat-pill">最新正式版: <strong>v1.0.39</strong></div>
+            <div class="stat-pill">更新时间: <strong>2026-11-10</strong></div>
             <div class="stat-pill">发布状态: <strong>正式发布通道</strong></div>
             <div class="stat-pill">安全承诺: <strong>官方原生签署 · 0商业广告 · 隐私合规</strong></div>
         </div>
@@ -359,52 +359,58 @@
         <div class="card-header">
             <div>
                 <div class="version-title">
-                    v1.0.30 正式发布包
+                    v1.0.39 正式发布包
                     <span class="badge-latest">推荐升级</span>
                 </div>
-                <div class="release-date">发布日期: 2026-11-09 &nbsp;|&nbsp; 适用架构: ARM64-v8a / ARMv7 / x86_64</div>
+                <div class="release-date">发布日期: 2026-11-10 &nbsp;|&nbsp; 适用架构: ARM64-v8a / ARMv7 / x86_64</div>
             </div>
-            <a href="releases/Unwind-v1.0.30-release.apk" download class="btn-download">
+            <a href="releases/Unwind-v1.0.39-release.apk" download class="btn-download">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                下载正式版 APK (47.07 MiB)
+                下载正式版 APK (47.08 MiB)
             </a>
         </div>
 
         <div class="pkg-info-grid">
             <div class="pkg-info-item"><strong>安装包名:</strong> com.beckmint.unwind</div>
-            <div class="pkg-info-item"><strong>文件名称:</strong> Unwind-v1.0.30-release.apk</div>
-            <div class="pkg-info-item"><strong>安装包大小:</strong> 47.07 MiB (49,356,962 字节)</div>
+            <div class="pkg-info-item"><strong>文件名称:</strong> Unwind-v1.0.39-release.apk</div>
+            <div class="pkg-info-item"><strong>安装包大小:</strong> 47.08 MiB (49,367,001 字节)</div>
             <div class="pkg-info-item"><strong>最低系统:</strong> Android 10 (API 29) +</div>
         </div>
 
         <div class="sha-box">
-            <span><strong>SHA-256 完整校验码:</strong> <code>28174221bc04b93359c22529be3ffaa10c081a1f332a83bf9503fe1c094fe134</code></span>
+            <span><strong>SHA-256 完整校验码:</strong> <code>5dd154afb31386f40713c3922745ef1f495db8c9cfe118ee524d4ee3b921356a</code></span>
         </div>
 
         <h3 style="font-size: 16px; margin: 18px 0 10px 0; color: var(--text-main);">🌟 本次核心升级亮点：</h3>
         <ul>
-            <li>主音量 0–30 与系统媒体音量同步，实体音量键和旋钮直接调整系统音量，移除额外 App 音量衰减。</li>
-            <li>Winamp/WSZ 皮肤下载解压后先展示适配确认，可修改名称，确认后保存并应用；取消不安装，同名导入保留旧皮肤。</li>
-            <li>保留皮肤配色、按钮图案及按下态；对有明确边框的按钮检测完整边界，避免缺边或带入相邻图案。</li>
-            <li>播放列表背景优先选择最大有效独立背景图；没有独立背景时保留主面板完整画面，按歌曲列表等高、靠右及向左渐隐显示。</li>
-            <li>导入皮肤顶栏统一显示左上角名称文字，控制在约半行宽度内；不再把裁切纹理误当标题图。进度条恢复简洁轨道与滑块。</li>
-            <li>统一封面、滤镜和功能键区域的内阴影；导入链接提供原生编辑框、解锁检查、粘贴链接和输入法切换入口。</li>
+            <li>修复非视频播放时封面点击层挤占布局、MP4 播放结束后界面错乱的问题；竖屏保留约 50% 屏幕的播放列表，与折叠屏悬停交互统一。</li>
+            <li>放大功能标签与顶部/底部雕刻文字，面板文字根据底色使用高反差颜色；FILTER、VOLUME 及数值居中对齐滚轮，THEME、HOLD 标题统一基线。</li>
+            <li>滚轮触控高度扩大至 48dp；CHANGE 改为点按回弹的主题切换键，HOLD 保留开关；银色 National 铭牌改为薄片质感，保留 OPEN 高亮。</li>
+            <li>正在播放栏展示“歌名 · 演唱者 · 专辑”，缺失字段略过；超长内容停留后缓慢滚动，切歌重新从头展示。</li>
+            <li>修复循环按钮标签未跟随状态更新，全部循环 / 单曲循环 / 随机播放同步显示 RPT ALL / RPT ONE / SHUFFLE。</li>
+            <li>重新平衡磁带、黑胶、收音机、CD 与 MD 的持续噪声电平，保留各自音色、间歇特点及 NOISE 档位。</li>
+            <li>增加专门绘制的单色磁带机图标，Nothing OS 主题桌面直接采用单色图案；更新关于页的屏幕适配与功能说明。</li>
         </ul>
-        <p>已知问题：N2 上当前微信输入法仍可能不显示键盘；可使用“粘贴链接”或切换到系统输入法。皮肤原图中自带的仪表空槽和嵌入图案不做重绘。</p>
-        <p>验证：正式 Release 构建及 lintVitalRelease 通过，APK v2 签名校验通过，签名证书与 1.0.29 一致。本次界面已在 N2 调试包完成截图复查；正式签名包未进行逐机型实机回归。</p>
-        <p>通用包版本代码：1030。vivo专属历史渠道包保持1.0.4；用户已有主题选择保留。</p>
+        <p>已知问题：此前 N2 微信输入法兼容问题未在本轮验证修复，可使用“粘贴链接”或切换系统输入法。</p>
+        <p>验证：正式 Release 构建及 lintVitalRelease 通过，APK v2 签名校验通过，签名与历史正式版一致。Nothing Phone 已完成本轮功能实机检查，用户确认大屏适配正常；其他机型未进行本轮完整回归。</p>
+        <p>通用包版本代码：1039。vivo 专属历史渠道包保持 1.0.4；已有播放列表与主题选择保留。</p>
 
     </div>
 
     <!-- Quick Installation Guide -->
     <div class="guide-box">
         <h3 style="margin-top: 0; font-size: 17px; color: var(--primary); display: flex; align-items: center; gap: 8px;">
-            📱 纵向小折叠外屏安装与使用指南（moto razr 50 ultra / vivo X Flip）
+            📱 大屏与折叠屏安装使用指南
         </h3>
         
         <div style="margin-bottom: 20px;">
+            <h4>Nothing Phone 与普通直板大屏</h4>
+            <p>安装通用正式包即可使用大屏布局；上半屏保留播放列表，下方提供封面、滤镜与实体按键。启用桌面主题图标时使用应用内置的单色磁带机图案。</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
             <h4 style="margin: 14px 0 8px 0; font-size: 15px; color: var(--text-main); font-weight: 700;">🔹 moto razr 50 ultra（4.0 英寸超大外屏）专属设置：</h4>
-            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v1.0.30-release.apk</code>；</div>
+            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v1.0.39-release.apk</code>；</div>
             <div class="guide-step"><strong>步骤 2：</strong>进入手机系统【设置】 > 【外屏】 > 【外屏应用】（或在桌面外屏卡片管理中）；</div>
             <div class="guide-step"><strong>步骤 3：</strong>在应用列表中勾选「不卡带 (Unwind)」允许在外屏显示与运行；</div>
             <div class="guide-step"><strong>步骤 4：</strong>长按应用卡片或在设置中选择「全屏显示 (Full Screen)」模式，使应用自适应覆盖整块 4.0 英寸大外屏；</div>
@@ -413,7 +419,7 @@
 
         <div>
             <h4 style="margin: 14px 0 8px 0; font-size: 15px; color: var(--text-main); font-weight: 700;">🔹 vivo X Flip（外屏魔镜）启用步骤：</h4>
-            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v1.0.30-release.apk</code>；</div>
+            <div class="guide-step"><strong>步骤 1：</strong>点击上方按钮下载并安装最新版 <code>Unwind-v1.0.39-release.apk</code>；</div>
             <div class="guide-step"><strong>步骤 2：</strong>打开手机系统【设置】 > 【外屏专区】或【魔镜应用 / 外屏应用管理】；</div>
             <div class="guide-step"><strong>步骤 3：</strong>在应用列表中找到「不卡带 (Unwind)」并勾选开启允许在外屏显示；</div>
             <div class="guide-step"><strong>步骤 4：</strong>合上手机翻盖，点亮外屏向左滑动至应用列表，点击「不卡带」图标即可开始沉浸播放！（长按可拖动至外屏首位，合盖双击秒开秒听）。</div>
@@ -426,9 +432,10 @@
     </div>
 
     <div class="history-list">
+        <div class="history-item"><div class="history-header"><span class="history-tag">v1.0.30</span><a class="btn-download-sm" href="releases/Unwind-v1.0.30-release.apk">通用历史包</a></div><p>2026-11-09 · 系统音量与 Winamp 皮肤适配更新。</p></div>
         <div class="history-item"><div class="history-header"><span class="history-tag">v1.0.29</span><a class="btn-download-sm" href="releases/Unwind-v1.0.29-release.apk">通用历史包</a></div><p>2026-11-09 · 折叠屏与 RX-C45 主题更新。</p></div>
         <div class="history-item"><div class="history-header"><span class="history-tag">v1.0.7</span><a class="btn-download-sm" href="releases/Unwind-v1.0.7-release.apk">通用历史包</a></div><p>2026-10-30 · RX-C45 银色主题与内屏界面更新。</p></div>
-        <div class="history-item"><div class="history-header"><span class="history-tag">v1.0.4</span><a class="btn-download-sm" href="releases/Unwind-v1.0.4-release.apk">通用历史包</a><a class="btn-download-sm" href="releases/Unwind-v1.0.4-vivo-release.apk">vivo历史渠道包</a></div><p>2026-10-27 · 原1.0.4下载保留，当前通用版本见上方1.0.30。</p></div>
+        <div class="history-item"><div class="history-header"><span class="history-tag">v1.0.4</span><a class="btn-download-sm" href="releases/Unwind-v1.0.4-release.apk">通用历史包</a><a class="btn-download-sm" href="releases/Unwind-v1.0.4-vivo-release.apk">vivo历史渠道包</a></div><p>2026-10-27 · 原1.0.4下载保留，当前通用版本见上方1.0.39。</p></div>
         <div class="history-item">
             <div class="history-header">
                 <div>

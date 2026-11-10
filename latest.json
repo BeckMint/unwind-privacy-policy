@@ -1,8 +1,8 @@
 {
-  "versionCode": 1030,
-  "versionName": "1.0.30",
+  "versionCode": 1039,
+  "versionName": "1.0.39",
   "vivoVersionCode": 1004,
-  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.30-release.apk",
-  "sha256": "28174221bc04b93359c22529be3ffaa10c081a1f332a83bf9503fe1c094fe134",
-  "notes": "系统媒体音量同步；WSZ 皮肤确认导入、按钮边界、列表等高背景与左上文字标题；简化进度条。微信输入法兼容问题仍保留，可粘贴或切换系统输入法。"
+  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.39-release.apk",
+  "sha256": "5dd154afb31386f40713c3922745ef1f495db8c9cfe118ee524d4ee3b921356a",
+  "notes": "Nothing Phone 大屏与单色图标适配；清晰雕刻字、控件对齐及 CHANGE 点按键；歌名/演唱者/专辑跑马灯；修复循环按钮标签；重新平衡五种噪声。"
 }
