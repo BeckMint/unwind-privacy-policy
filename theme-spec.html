@@ -302,7 +302,7 @@
     </style>
 </head>
 <body>
-<section style="max-width:1000px;margin:24px auto;padding:20px;border:1px solid #666;border-radius:12px"><h2>RX-C45 内屏主题规范（初版 App 1.0.7）</h2><p>暖银灰主题、黑白LCD、红色OPEN、横向滑杆与HOLD。已有主题选择保留。专属控件几何由内置ID选择，不是新的皮肤JSON字段；导入皮肤继续映射通用机身与LCD颜色。主题文件格式仍为v1.0.0。1.0.29更新内容与安装包见发布页。</p><p><a href="THEME_SPEC_CN.md">中文实现补充</a> · <a href="THEME_SPEC.md">English implementation notes</a> · <a href="releases.html">当前版本下载</a></p></section>
+<section style="max-width:1000px;margin:24px auto;padding:20px;border:1px solid #666;border-radius:12px"><h2>RX-C45 内屏主题规范（初版 App 1.0.7）</h2><p>暖银灰主题、黑白LCD、红色OPEN、横向滑杆与HOLD。已有主题选择保留。专属控件几何由内置ID选择，不是新的皮肤JSON字段；导入皮肤继续映射通用机身与LCD颜色。主题文件格式仍为v1.0.0。图片拼接和控件贴图见下方规范。</p><p><a href="THEME_SPEC_CN.md">中文实现补充</a> · <a href="THEME_SPEC.md">English implementation notes</a> · <a href="releases.html">当前版本下载</a></p></section>
 <div class="container">
     <nav class="nav-bar">
         <div class="nav-brand">
@@ -322,7 +322,7 @@
 
     <div class="hero-banner">
         <h1 class="hero-title">🎨 Unwind 开放主题规范与 AI 提示词指南</h1>
-        <p class="hero-subtitle">传承 1997 年 Winamp 皮肤自由精神 · 专为人类与 AI 双向设计的声明式外屏皮肤体系 (v1.0.0)</p>
+        <p class="hero-subtitle">传承 1997 年 Winamp 皮肤自由精神 · 专为人类与 AI 双向设计的声明式主题与图片拼接皮肤 (v1.0.0)</p>
         <div class="hero-stats">
             <div class="stat-pill">开源协议: <strong>MIT License (100% 免费商用)</strong></div>
             <div class="stat-pill">适用机型: <strong>小折叠外屏全机型 + 传统直板/内屏</strong></div>
@@ -345,6 +345,45 @@
                 <p>无需手写十六进制配色！复制下方标准 AI 提示词模板发给大语言模型，AI 即可根据你指定的复古硬件概念（如赛博朋克、包豪斯、索尼初代 Walkman）秒级输出开箱即用的完整主题。</p>
             </div>
         </div>
+    </div>
+
+    <div class="section-card" id="image-skins">
+        <h2 class="section-title">图片拼接皮肤</h2>
+        <p>可以把机身、列表背景、边框和按钮分别做成图片，交给 Unwind 拼接。机身图片使用 <code>chassis.chassisImage</code>，列表插画使用 <code>chassis.watermarkImage</code>。控件图片放进 <code>adapted/</code>，并将 <code>controls.isWinampStyle</code> 设为 <code>true</code>。</p>
+        <h3>可导入的文件结构</h3>
+        <pre>theme.json
+chassis.webp
+watermark.png
+adapted/
+  playlist_border.png
+  open.png
+  open_pressed.png
+  play.png
+  play_pressed.png</pre>
+        <pre>{
+  "id": "image_deck",
+  "name": "Image Deck",
+  "chassis": {
+    "chassisImage": "chassis.webp",
+    "watermarkImage": "watermark.png",
+    "watermarkAlpha": 0.28
+  },
+  "controls": { "isWinampStyle": true }
+}</pre>
+        <p>按需提供素材。图片路径相对于配置文件。机身图建议只画材质和装饰，按钮文字和可交互区域由 App 布局。列表插画按列表高度缩放，靠右显示并向左淡出，<code>watermarkAlpha</code> 控制透明度。</p>
+        <table>
+            <thead><tr><th scope="col">控件素材</th><th scope="col">拼接与绘制规则</th></tr></thead>
+            <tbody>
+                <tr><td><code>playlist_border.png</code></td><td>用于支持贴图的凹槽边框。提供一张完整 PNG，四边各预留 3 个源像素。App 自动九宫格切片，保留四角并拉伸边缘与中心。建议用透明中心，避免把旧界面的文字一起拉伸。</td></tr>
+                <tr><td><code>open.png</code>、<code>previous.png</code>、<code>play.png</code>、<code>pause.png</code>、<code>next.png</code></td><td>每张图只放一个完整按键图案，保持各状态尺寸一致。按下态用同名的 <code>_pressed.png</code>。图案按比例放入按钮，App 显示功能标签。</td></tr>
+                <tr><td><code>volume_track.png</code>、<code>volume_thumb.png</code></td><td>滚轮轨道和滑块须成对提供。普通轨道用单张 PNG。若使用经典 Winamp 的多帧轨道，图片宽 68 像素，28 帧按每 15 像素一行纵向排列，每帧取 68 × 13 像素。</td></tr>
+                <tr><td><code>eq_track.png</code>、<code>eq_thumb.png</code></td><td>均衡器轨道使用经典 Winamp 的帧表。28 帧排成 14 列、2 行，步长为 15 × 65 像素，每帧取 14 × 63 像素。滑块贴图按四边各 3 个源像素做九宫格切片。</td></tr>
+            </tbody>
+        </table>
+        <p>控件贴图只在接入相应素材的布局生效，缺图时显示默认样式。内置 RX-C45 的专用面板素材由主题 ID 选择。</p>
+        <h3>打包与导入</h3>
+        <p>把 <code>theme.json</code>（也可命名为 <code>skin.json</code>）和素材放在 ZIP 根目录，或同一层外包目录。保存为 <code>.zip</code>、<code>.unwindskin</code> 或 <code>.unwindtheme</code>，在 App 的「导入主题」中选择。已有的 Winamp 2 经典 <code>.wsz</code> 也可直接导入，App 会从 <code>main.bmp</code> 或 <code>main.png</code> 及配套位图生成适配素材。</p>
+        <p><a href="releases.html">下载并预览当前版本</a></p>
     </div>
 
     <!-- AI Prompting Guide -->
@@ -388,7 +427,8 @@ Output format:
     "isWinampStyle": false
   }
 }
-3. Kotlin DSL enum snippet ready to be added to RetroTheme.kt.
+3. For an image skin, include the relative chassisImage and watermarkImage paths in chassis. Set controls.isWinampStyle to true when supplying adapted/ component PNGs. Use the exact filenames and dimensions in the image-skin reference above.
+4. Output the archive file tree and list the assets to supply. Keep labels and controls in the app layout.
 <button class="copy-btn" onclick="copyPrompt()">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
     一键复制 AI 提示词
