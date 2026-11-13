@@ -1,8 +1,8 @@
 {
-  "versionCode": 1055,
-  "versionName": "1.0.55",
+  "versionCode": 1056,
+  "versionName": "1.0.56",
   "vivoVersionCode": 1004,
-  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.55-release.apk",
-  "sha256": "818aa0d044af88578c8f1f153de2db3475a302af9ac1a700e74ea6facff6cc35",
-  "notes": "SET → 实验室可为磁带、黑胶、收音机、CD 和 MD 切换「滤镜叠加」或「实时演算」。加强不同设备的音色差异，NOISE 为 0 时仍保留各档音色。RADIO 保留 FM 立体声，DIRECT 关闭噪声并原样直通。缩短滤镜切换的播放缓冲。OPEN 整夹导入显示进度，WebDAV 曲目分批加入播放列表。"
+  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.56-release.apk",
+  "sha256": "56658b4443c78bd5d34fda1c50dfccf0c8e35b5be241f770c34c9dabf6d50a3f",
+  "notes": "WebDAV 整夹导入时，按原顺序一次性加入全部曲目，先显示文件名或已有缓存。优先准备播放首曲并读取其元数据，其余曲目的歌名、演唱者、专辑和时长在后台补齐。"
 }
