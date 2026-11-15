@@ -1,8 +1,8 @@
 {
-  "versionCode": 1056,
-  "versionName": "1.0.56",
+  "versionCode": 1057,
+  "versionName": "1.0.57",
   "vivoVersionCode": 1004,
-  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.56-release.apk",
-  "sha256": "56658b4443c78bd5d34fda1c50dfccf0c8e35b5be241f770c34c9dabf6d50a3f",
-  "notes": "WebDAV 整夹导入时，按原顺序一次性加入全部曲目，先显示文件名或已有缓存。优先准备播放首曲并读取其元数据，其余曲目的歌名、演唱者、专辑和时长在后台补齐。"
+  "apkUrl": "https://beckmint.github.io/unwind-privacy-policy/releases/Unwind-v1.0.57-release.apk",
+  "sha256": "0f9c9d69e547a9386be59399a36dbf416ded69cab7134c2877ac73e8bc0b5385",
+  "notes": "TAPE 滤镜加强高频衰减，磁带音色更闷。滤镜叠加和实时演算两种方案都提高磁带嘶声，可用 NOISE 调节。WebDAV 整夹导入后立即在后台扫描，自动补齐歌名、演唱者、专辑、时长和每首歌曲的内嵌封面。"
 }
